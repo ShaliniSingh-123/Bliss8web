@@ -1,0 +1,42 @@
+<section class="wrapper-blogs">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10">
+        <h5>Discover Latest News (Blogs)</h5>
+
+      </div>
+      <div class="col-md-2 col-view-all">
+        <a href="/blog-news" class="link-view-all-blogs">View All <img src="assets/images/arrow-theme-color.svg"
+            alt=""></a>
+      </div>
+    </div>
+
+    <div class="row">
+      <ng-container *ngFor="let item of blog">
+        <div class="col-md-3">
+          <div class="wrap-blog-item">
+            <a [href]="'/find-blog?id='+item.id" style="text-decoration: none;">
+              <div class="wrap-blog-img">
+                <img src="{{s3BucketHost}}{{item.imageFolder}}/{{item.imageName}}" alt="" class="img-fluid img-blog">
+              </div>
+              <div class="wrap-blog-summary">
+                <p class="blog-date">{{item.createdOn | date: dateFormat}}</p>
+
+                <h3 class="blog-title">{{item.title}}</h3>
+                <p class="blog-category">Property Advice</p>
+                <p class="blog-small-desc">Favourable interest and mortgage rates, a highly effective Covid-19
+                  vaccination
+                  drive, and new visa rules for investors</p>
+                <a [href]="'/find-blog?id='+item.id" class="link-continue-reading">Continue Reading <img
+                    src="assets/images/arrow-theme-color.svg" alt=""></a>
+              </div>
+            </a>
+          </div>
+        </div>
+      </ng-container>
+
+    </div>
+
+  </div>
+
+</section>

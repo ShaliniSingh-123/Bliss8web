@@ -1,0 +1,13 @@
+// @import "~@ng-select/ng-select/themes/default.theme.css";
+.search-inner input, .search-inner select {
+    border-bottom: 0px solid lightgray !important;
+            border-radius: none;
+    padding: 10px 0;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    height: 10px;
+}
+div.mat-form-field-flex.ng-tns-c90-20 {
+    height: 50px !important;
+    overflow-y: auto !important;
+}

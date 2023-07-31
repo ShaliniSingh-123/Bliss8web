@@ -1,0 +1,156 @@
+.mortgage {
+    background: url("/assets/images/mortgage-background.png"), #081F2166;
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF;
+    background-size: cover;
+    height: 300px;
+    position: relative;
+}
+
+.wrapper-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 300px;
+    background: rgba($color: #000000, $alpha: 0.3);
+    z-index: 9;
+    width: 100%;
+}
+
+.content-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+}
+
+p {
+    font-size: 14px;
+    color: #6D7787;
+}
+
+
+
+.mat-interest {
+    background-color: #FFFFFF;
+    text-align: center;
+    border-radius: 15px;
+    height: 140px;
+    justify-content: center;
+    padding-top: 1rem;
+}
+
+.mat-interest:hover {
+    border: 4px solid #6D7787;
+}
+.per-year{
+    margin-bottom: 0.5rem;
+}
+
+.estimation {
+    text-align: end;
+    margin-top: 4rem;
+    margin-bottom: 7rem;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.ngx-slider .ngx-slider-bubble{
+    padding-bottom: 10px !important;
+}
+@media screen and (max-width:870px) {
+    
+    .payment {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .property-price {
+        width: calc(100% - 30px);
+        display: block;
+        margin: 0 auto;
+    }
+
+    .calculation {
+        width: calc(100% - 30px);
+        display: block;
+        margin: 0 auto;
+    }
+
+    .mat-interest {
+        text-align: center;
+        border-radius: 20px;
+        height: 150px;
+      
+    }
+    
+
+    p {
+        padding-left: 10px;
+    }
+}
+
+.slider-styles-genrl {
+    margin-top: 20px;
+
+    .ngx-slider {
+        padding-bottom: 15px;
+
+        .ngx-slider-pointer {
+            // background-color: var(--primary-color) !important
+            background-color: white;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            top: -8px;
+            z-index: 3;
+            border-radius: 16px;
+            border: 2px solid var(--primary-color);
+        }
+
+        .ngx-slider-pointer:after {
+            display: none;
+        }
+
+        .ngx-slider-selection {
+            background: var(--primary-color);
+        }
+
+        .ngx-slider-active {
+            outline-color: var(--primary-color) !important;
+        }
+
+        .ngx-slider-bar {
+            height: 2px !important;
+        }
+    }
+}
+
+.payment {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.property-price {
+    padding-top: 1rem;
+    padding-right: 20px;
+}
+
+.calculation {
+    background-color: #F0F1F2;
+    border-radius: 30px;
+    padding-top: 1rem;
+}
+
+.slider-styles-genrl h6,
+.mat-interest h6,
+h4 {
+    font-weight: 600;
+}

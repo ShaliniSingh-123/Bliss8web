@@ -1,0 +1,70 @@
+<div class="mortgage">
+  <div class="wrapper-overlay"></div>
+  <div class="content-overlay">
+    <h3>MORTGAGE CALCULATOR</h3>
+    <h6>Home / Mortgage Calculator</h6>
+  </div>
+</div>
+<!-- *********************************************** ngx-slider code begin ************************************************************** -->
+<div class="container calc">
+  <div class="row payment">
+    <div class="col-sm-6 property-price">
+      <p>Use our free mortgage calculator to estimate your monthly mortgage payments.
+        We'll take care of everything else.
+      </p>
+      <div class="slider-styles-genrl">
+        <h6>PROPERTY PRICE</h6><br>
+        <ngx-slider [formControl]="propertyControl" [options]="options1"></ngx-slider><br>
+        <h6>DOWN PAYMENT</h6><br>
+        <ngx-slider [formControl]="downPaymentControl" [options]="options2"></ngx-slider><br>
+        <h6>INTEREST RATE</h6><br>
+        <ngx-slider [formControl]="interestControl" [options]="options3"></ngx-slider><br>
+        <h6>LOAN DURATION</h6><br>
+        <ngx-slider [formControl]="durationControl" [options]="options4"></ngx-slider><br>
+      </div>
+    </div>
+    <!-- **************************************************************** ngx-slider code end******************************************************** -->
+    <div class="col-sm-5 calculation">
+      <p class="paragraph">
+        The interest rate is the rate you borrow your loan at and
+        it affects your monthly repayments.
+        Interest rates vary, but are currently set at between 4.5% and 6.5%
+      </p>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="mat-interest">
+              <h4>{{interestControl.value}}%</h4>
+              <p class="per-year">Per Year</p>
+              <h6>1 Year Fixed</h6>
+              
+            </div>
+          </div>
+          <div class="col">
+            <div class="mat-interest">
+              <h4>{{value2}}%</h4>
+              <p class="per-year">Per Year</p>
+              <h6>Leading Product</h6>
+              <p>Residence</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="mat-interest">
+              <h4>{{value3}}%</h4>
+              <p class="per-year">Per Year</p>
+              <h6> 5 Year Fixed</h6>
+              <p>Non Residence</p>
+            </div>
+          </div>
+          <div class="estimation">
+            <h2>{{calculation() | number:'.2-2'}}</h2>
+            <h5>AED</h5>
+          </div>
+          <p class="paragraph">*Estimated monthly payment based on a {{mortgage | number:'.2-2'}} AED loan amount with a {{interestControl.value}}% fixed interest
+            rate for the entire
+            duration of the loan</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

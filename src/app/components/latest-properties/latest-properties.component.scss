@@ -1,0 +1,168 @@
+@import '~swiper/swiper.min.css';
+@import '~swiper/modules/navigation/navigation.min.css';
+@import '~swiper/modules/pagination/pagination.min.css';
+:root {
+    --primary-color: #00B8C6;
+    --secondry-color: #0A213C;
+    --body-light: #6D7787;
+}
+/* ======================= FEATURED PROPERTIES STYLSES START ======================= */
+
+.wrapper-latest-properties{
+    .title-latest-properties{
+        font-size: 30px;
+        margin: 40px 0 20px;
+        text-align: center;
+    }
+    .swiper{
+        height: 500px;
+        .swiper-slide {
+            border-radius: 20px;
+            overflow: hidden;
+            .swiper-slide-inner{
+                background: white;
+                border-radius: 20px;
+                overflow: hidden;
+                border: 1px solid lightgray;
+                .link-property{
+                    text-decoration: none;
+                }
+                .wrapper-thumb-featured-prop {
+                    position: reletive;
+                    .thumb-featured-prop{
+                        height: 200px;
+                        object-fit: cover;
+                        width: 100%;
+                    }
+                    .label-featured {
+                        position: absolute;
+                        top: 25px;
+                        right: 0;
+                        background: var(--primary-color);
+                        color: white;
+                        padding: 5px 15px;
+                        font-weight: bold;
+                        border-top-left-radius: 4px;
+                        border-bottom-left-radius: 4px;
+                    }
+                }
+                .wrapper-content-featured-prop {
+                    padding: 15px;
+                    color: #6D7787;
+                    background-color: white;
+                    .prop-title {
+                        color: var(--secondry-color);
+                        font-size: 24px !important;
+                        margin-bottom: 10px;
+                        letter-spacing: 0px;
+                        color: var(--secondry-color);
+                        line-height: 1.1;
+                    }
+                    
+                    .prop-location {
+                        margin-bottom: 10px;
+                        text-align: left;
+                        font-family: avenirRegular;
+                        letter-spacing: 0px;
+                        color: #6D7787;
+                        opacity: 1;
+                        font-size: 14px;
+                    }
+                    p.title-summary {
+                        font-size: 14px;
+                        margin-top: 5px;
+                        margin-bottom: 0;
+                    }
+                }
+                .property-card-divider {
+                    margin: 0;
+                    border-color: rgba(109, 119, 135, 1);
+                }
+                
+                .wrapper-property-prices {
+                    padding: 15px;
+                    .prop-price {
+                        font-size: 24px;
+                        margin-bottom: 0;
+                        color: var(--secondry-color);
+                    }
+                }
+                
+                .img-wishlist {
+                    height: 20px;
+                }
+            }
+        }
+        .swiper-pagination{
+            // bottom: -40px;
+            .swiper-pagination-bullet-active{
+                background: var(--primary-color) !important;
+            }
+        }
+    }
+    
+}
+/* ======================= FEATURED PROPERTIES STYLSES END ======================= */
+.swiper-button-prev1 {
+    top: calc(50% - 50px) !important;
+    left: 8px !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: white !important;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 50%) !important;
+    border-radius: 100px !important;
+    z-index: 9999;
+    position: absolute;
+    cursor: pointer;
+}
+
+.swiper-button-prev1 img {
+    width: 20px;
+    margin-left: 0.5rem !important;
+    margin-top: 0.8rem;
+
+}
+
+.swiper-button-next1 {
+    top: calc(50% - 50px) !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: white !important;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 50%) !important;
+    border-radius: 100px !important;
+    z-index: 9999;
+    position: absolute;
+    right: 8px;
+    cursor: pointer;
+}
+
+.swiper-button-next1 img {
+    width: 20px;
+    margin-left: 0.5rem !important;
+    margin-top: 0.8rem;
+
+}
+
+.discover-feature {
+    text-align: center;
+    font: normal normal 900 22px/46px 'avenirRegular';
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+// .props-summary-point{
+//     display: flex;
+//     justify-content: center;
+// }
+.wrapper-property-prices{
+    display: flex;
+    justify-content: space-between;
+    margin: 0.7rem;
+}
+@media (max-width: 768px) {
+    .props-summary-point{
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+    }
+  }

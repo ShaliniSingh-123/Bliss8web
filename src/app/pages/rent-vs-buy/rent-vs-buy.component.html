@@ -1,0 +1,225 @@
+<div class="buy">
+    <div class="wrapper-overlay"></div>
+    <div class="content-overlay">
+        <h3>RENT VS BUY CALCULATOR</h3>
+        <h6>Home / Rent vs Buy Calculator</h6>
+    </div>
+</div>
+<div class="container">
+    <div class="row calculate">
+        <div class="col-sm-7 cost">
+            <p>
+                Should you rent or buy? To help you answer this big question,
+                our calculator takes the most important costs associated with buying a property and
+                compares it to your equivalent rental costs. Try it out!
+            </p>
+            <div>
+                <!-- <label for="" class="form-label uppercase">WHAT IS YOUR YEARLY RENT?</label>
+                <input type="number" class="form-control " placeholder="AED" autocomplete="off"
+                    (keyup)="onYearlyRent($event)" [defaultValue]="96000">
+                <small>{{monthlyRent()| number:'.0-0'}} AED Monthly</small> -->
+                <label for="" class="form-label uppercase">What Is Your Yearly Rent (AED) ?</label>
+
+                <ngx-slider (mouseup)="onChangeSliders()" class="custom-slider" [options]="optionsYearlyRent"  [formControl]="yearlyRentControl"></ngx-slider>
+
+            </div>
+            <div>
+                <label for="" class="form-label uppercase">HOW MUCH DOES THE PROPERTY COST?</label>
+                <ngx-slider (mouseup)="onChangeSliders()" class=" custom-slider" [options]="optionsPropCost" [formControl]="propertyCostControl">
+                </ngx-slider>
+
+                <!-- <input type="number" class="form-control" placeholder="AED " (keyup)="onPropertyPrice($event)"
+                    [defaultValue]="1100000"> -->
+
+            </div>
+            <div >
+                <label for="" class="form-label uppercase">WHAT IS YOUR DOWN PAYMENT AMOUNT (%)?</label>
+                <ngx-slider (mouseup)="onChangeSliders()" class=" custom-slider" [options]="optionsDownPay" [formControl]="downPayControl">
+                </ngx-slider>
+
+                <!-- <input type="number" class="form-control" placeholder="AED" (keyup)="onDownPayment($event)"
+                    [defaultValue]="20"> -->
+            </div>
+            <div>
+                <label for="" class="form-label uppercase">HOW LONG ARE YOU PLANNING TO STAY IN THE PROPERTY?</label>
+                <ngx-slider (mouseup)="onChangeSliders()" class=" custom-slider" [options]="optionsStayProp" [formControl]="durationControl">
+                </ngx-slider>
+
+
+                <!-- <input type="number" class="form-control" placeholder="Years" (keyup)="onRentDuration($event)"
+                    [defaultValue]="5"> -->
+            </div>
+            <div>
+                <label for="" class="form-label uppercase">WHAT IS THE MORTGAGE INTEREST RATE?</label>
+                <ngx-slider class=" custom-slider" [options]="optionsInterestRate" [formControl]="interestControl">
+                </ngx-slider>
+
+            </div>
+            <div>
+                <label for="" class="form-label uppercase">WHAT IS THE MORTGAGE LOAN PERIOD?</label>
+
+                <ngx-slider  (mouseup)="onChangeSliders()" class=" custom-slider" [options]="optionsLoanPeriod" [formControl]="loanPeriodControl">
+                </ngx-slider>
+
+                <!-- <input type="number" class="form-control" placeholder="Years " (keyup)="OnLoadPeriod($event)"
+                    [defaultValue]="25"> -->
+            </div>
+        </div>
+        <div class="col-sm-5 graph">
+            <h2>{{ graptgTitle}}</h2>
+
+            <div>
+
+                <canvas baseChart class="chart-wrapper"
+                    style="padding-bottom:2rem;padding-right:3rem;height: 480px; display: block; box-sizing: border-box; width: 400px;"
+                    [datasets]="barChartData" [labels]="barChartLabels" [options]="barChartOptions"
+                   >
+                </canvas>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-7 cost">
+            <h3>Buy vs Rent Methodology</h3>
+            <p>Our buy vs. rent calculator methodology compares the total cost of renting with the total cost of
+                buying
+                by looking at much more than a monthly rent or mortgage payment.
+                <br> To calculate the cost of renting,
+                we
+                begin with the monthly rent, one-time agent commission based on the total yearly rent amount and
+                yearly
+                EJARI fees. This calculation does not include any maintenance fees you may incur as a tenant.
+                <br> To
+                calculate the cost of buying, we begin with the purchase price and calculate the initial down
+                payment
+                and various fees involved; the monthly mortgage payment agent commission, Dubai Land Department
+                registration fees, Registration Trustee fees, property valuation fee, mortgage processing and
+                registration fees. These costs are pre-defined and do not include service fees, home maintenance
+                fees or
+                utility fees. This calculator provides baseline assumptions based on your input.
+            </p>
+            <h3>Down Payment</h3>
+            <p>
+                Saving for a down payment in the UAE is one of the biggest challenges of buying. This is probably
+                one of
+                the reasons why 70% of the expats rent. Per UAE Central Bank Guidelines, the maximum loan to value
+                (LTV)
+                for expatriates is 75%, providing it is a first mortgage and the property is valued under Dh5
+                million.
+                For purchases higher than Dh5 million, the LTV reduces to 65 per cent and 60 per cent for all
+                subsequent
+                purchases.
+            </p>
+        </div>
+        <div class="col-sm-5 tabs">
+            <ul class="nav nav-tabs" id="myTab" role="tablist" style="justify-content:center;color:black">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                        type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">RENT COST</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                        type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">BUY
+                        COST</button>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+                    tabindex="0">
+                    <table class="table">
+                        <thead>
+                        <tbody>
+                            <tr>
+                                <td class="list">Monthly Rent</td>
+                                <td class="values">{{monthlyRent()| number:'.0-0'}} AED</td>
+                            </tr>
+                            <tr>
+                                <td class="list">Agent Commission <img src="/assets/images/exclamation-circle.svg"
+                                        alt=""> </td>
+                                <td class="values"> 5040 AED</td>
+                            </tr>
+                            <tr>
+                                <td class="list">Ejari Fee <img src="/assets/images/exclamation-circle.svg"></td>
+                                <td class="values">195 AED</td>
+                            </tr>
+                            <tr style="background: #F0F1F2;">
+                                <td>
+                                    <h6 style="color: #000000;">Total rental cost over 0{{durationControl.value}} years</h6>
+
+                                </td>
+                                <td class="values">
+                                    <h6 style="color: #000000;">{{onrent()}} AED</h6>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="rent-looking">
+                        <h6>LOOKING TO RENT?</h6>
+                        <p>Choose from thousands of properties available for rent in Dubai</p>
+                        <button type="submit" class="btn-primary">FIND PROPERTIES FOR RENT</button>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab"
+                    tabindex="0">
+                    <table class="table">
+                        <thead>
+                        <tbody>
+                            <tr>
+                                <td>Purchase Price</td>
+                                <td>{{propertyCostControl.value}} AED</td>
+                            </tr>
+                            <tr>
+                                <td>Down payment </td>
+                                <td>{{dowpaymentCalculation()}} AED</td>
+                            </tr>
+                            <tr>
+                                <td>Principal amount <img src="/assets/images/exclamation-circle.svg"></td>
+                                <td>{{onPa()}} AED</td>
+                            </tr>
+                            <tr class="table-row-not-expanded" *ngFor="let covenant of covenants; let i = index"
+                                style="background-color:#F8F8F8">
+                                <td>
+                                    <div> Buying fees <a style="color: #00B8C6;" class="dropdown-toggle"
+                                            data-bs-toggle="dropdown " aria-expanded="false"
+                                            (click)="covenant.isExpanded = !covenant.isExpanded">Hide Breakdown</a>
+                                    </div>
+                                    <div *ngIf="covenant.isExpanded" class="expanded-panel">
+                                        <div class="table-container">
+                                            <table class="table">
+                                                <tr *ngFor="let fee of fees">
+                                                    <td class="list">{{fee.name}}<img
+                                                            src="/assets/images/exclamation-circle.svg"></td>
+                                                    <td class="values">{{fee.value}} AED</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>82,140 AED</td>
+                            </tr>
+                            <tr>
+                                <td>Monthly mortgage payment </td>
+                                <td>{{calculation() |number:'.0-1'}}</td>
+                            </tr>
+                            <tr style="background: #F0F1F2;">
+                                <td>
+                                    <h6 style="color: #000000;">Total buying cost over 0{{loanPeriodControl.value}} years</h6>
+                                </td>
+                                <td>
+                                    <h6 style="color: #000000;">{{onBuy()|number:'.0-1'}}</h6>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="rent-looking" style="text-align:left;">
+                        <h6>READY TO BUY?</h6>
+                        <p>Choose from thousands of properties available for sale in Dubai</p>
+                        <button type="submit" class="btn-primary">FIND PROPERTIES TO BUY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

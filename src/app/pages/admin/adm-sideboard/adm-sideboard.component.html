@@ -1,0 +1,41 @@
+<div class="sidebar" [ngClass]="{ expanded: isExpanded }">
+    <div routerLinkActive="hidden">
+        <a routerLink="/main-adm">main-adm</a>
+    </div>
+    <div class="content">
+      <div class="link">
+        <a 
+         [ngClass]="currentSelected =='DASHBOARD' ? 'activeSidebarLink' : 'inActiveSidebarLink'"
+         class="content" 
+         (click)="pageRoute('DASHBOARD')"
+          
+        >
+        <div class="title">Dashboard</div>
+      </a>
+     
+      </div>
+      <div class="link">
+        <a 
+        [ngClass]="currentSelected =='LEAD' ? 'activeSidebarLink' : 'inActiveSidebarLink'"
+          class="content " 
+          (click)="pageRoute('LEAD')"
+      >
+    
+          <div class="title">Lead Managment</div>
+      </a>
+
+      </div>
+      <div class="link">
+        <a 
+        [ngClass]="currentSelected =='USER' ? 'activeSidebarLink' : 'inActiveSidebarLink'"
+          class="content "
+          (click)="pageRoute('USER')"
+        >
+          <div class="title">User Managment</div>
+      </a>
+      </div>
+    </div>
+    
+  </div>
+ 
+  

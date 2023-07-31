@@ -1,0 +1,48 @@
+.custom-tabs {
+  width: auto !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.button {
+  background-color: transparent;
+  border-color: transparent;
+  margin-left: auto !important;
+  font-weight: 700;
+  opacity: 100%;
+  font-size: 12px;
+  width: 150px;
+  color: #191919 !important;
+  display: inline-flex;
+  inline-size: 180px;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+.button ::before :active {
+  color: #E4EAF2;
+}
+
+.icon-style {
+  color: #E4EAF2;
+  // background-color: transparent;
+  display: inline-flex;
+  justify-content: center;
+  vertical-align: middle;
+  //margin-left: auto !important;
+}
+
+.tabs-container {
+  display: inline-block;
+  margin-right: 5px;
+  //@include clickable();
+}
+
+.scrollbar {
+  display: flex;
+  flex-grow: 1;
+  overflow:auto;
+  white-space: nowrap;
+}

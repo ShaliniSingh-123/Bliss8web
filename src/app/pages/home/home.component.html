@@ -1,0 +1,220 @@
+<!-- HERO SLIDER SECTION START -->
+<div class="wrapper-hero-section">
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+        aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+        aria-label="Slide 3"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+        aria-label="Slide 4"></button>
+      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+        aria-label="Slide 5"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{s3BucketHost}}banner/1.png" class="d-block w-100" alt="Hero Banner">
+
+        <!-- <div class="carousel-caption">
+          <p>LUXURIES PROPERTIES</p>
+          <h1>Your Dream Lifestyle Is Calling</h1>
+        </div> -->
+      </div>
+      <div class="carousel-item">
+        <img src="{{s3BucketHost}}banner/2.png" class="d-block w-100" alt="...">
+
+      </div>
+      <div class="carousel-item">
+        <img src="{{s3BucketHost}}banner/3.png" class="d-block w-100" alt="...">
+
+      </div>
+      <div class="carousel-item">
+        <img src="{{s3BucketHost}}banner/4.png" class="d-block w-100" alt="...">
+
+      </div>
+      <div class="carousel-item">
+        <img src="{{s3BucketHost}}banner/5.png" class="d-block w-100" alt="...">
+
+      </div>
+    </div>
+
+  </div>
+  <!-- <button (click)="signUp_In()" >SIGN IN ----</button> -->
+  <!-- <div class="sliding-auto">
+    <swiper [config]="configauto" class="mySwiper">
+      <ng-template swiperSlide> <img src="assets/images/1.png" class="d-block w-100" alt="Hero Banner">
+      </ng-template>
+      <ng-template swiperSlide>
+        <img src="assets/images/2.png" class="d-block w-100" alt="Hero Banner">
+      </ng-template>
+      <ng-template swiperSlide> <img src="assets/images/3.png" class="d-block w-100" alt="...">
+
+      </ng-template>
+      <ng-template swiperSlide> <img src="assets/images/4.png" class="d-block w-100" alt="...">
+
+      </ng-template>
+      <ng-template swiperSlide> <img src="assets/images/5.png" class="d-block w-100" alt="...">
+      </ng-template>
+
+
+    </swiper>
+  </div> -->
+
+  <!-- SEARCH SECTION START -->
+  <app-search> </app-search>
+  <!-- SEARCH SECTION END -->
+</div>
+
+<!-- HERO SLIDER SECTION END -->
+
+
+
+
+<!--ADVANCE SEARCH POPUP STRATS-->
+<!-- <app-advance-search-popup *ngIf="showIt" (close)="closeModal()"></app-advance-search-popup> -->
+<!--ADVANCE SEARCH POPUP END-->
+
+
+<!--FEATURES PROPERTIES STRATS-->
+<app-features></app-features>
+<!--FEATURES PROPERTIES END-->
+
+
+
+<!--DISCOVER FEATURES PROPERTIES STRATS-->
+<div class="wrapper-featured-properties container" >
+  <div class="row">
+    <div class="col-md-10">
+        <h5 class="text-center">Discover Our Featured Properties</h5>
+    </div>
+    <div class="col-md-2 col-view-all">
+        <a href="/property-search/" class="link-view-all-properties">View All <img src="assets/images/arrow-theme-color.svg"
+          alt=""></a>
+      </div>
+  </div>
+  <!-- <app-discover-features-properties></app-discover-features-properties> -->
+  <app-properties-slide class="properties-container" [endCardMessage]="'View all Properties'" [NumOfProperties]="8"
+   [maxsliderPerView]="relatedPropCardSize" [query]="{}" >
+
+  </app-properties-slide>
+</div>
+
+<!--DISCOVER FEATURES PROPERTIES END-->
+
+
+
+<!-- *************************************************** LOCATIONS SECTION START *************************************************** -->
+<app-best-location></app-best-location>
+
+<!-- *************************************************** LOCATIONS SECTION END *************************************************** -->
+
+<!-- *************************************************** OUR AGENTS SECTION STRT *************************************************** -->
+<ng-container ><app-agents></app-agents></ng-container>
+<!-- *************************************************** OUR AGENTS SECTION END *************************************************** -->
+
+<!-- *************************************************** WHY CHOOSE US SECTION START *************************************************** -->
+<app-why-choose></app-why-choose>
+<!-- *************************************************** WHY CHOOSE US SECTION END *************************************************** -->
+<!-- *************************************************** BLOG SECTION START *************************************************** -->
+<ng-container ><app-blogs></app-blogs></ng-container>
+<!-- *************************************************** BLOG SECTION END *************************************************** -->
+<!-- *************************************************** PARTNERS SECTION START *************************************************** -->
+<ng-container >
+<app-home-partners></app-home-partners>
+</ng-container>
+<!-- *************************************************** PARTNERS SECTION END *************************************************** -->
+
+<!-- *************************************************** ACHIEVEMENTS SECTION START *************************************************** -->
+<section class="wrapper-achievements">
+  <div class="container">
+    <div class="wrapper-heading">
+      <h5 class="text-center">Achievements</h5>
+      <p class="text-center achivment-sub">We are Industry leaders with professional excellence,superior customer service, investment in the best resources and cutting edge tech.</p>
+    </div>
+    <div class="row  achievements-reponsive">
+      <div class="col-md-3">
+        <div class="wrap-item-achievements">
+          <img src="assets/images/achievements/1.svg" alt="" class="img-fluid">
+          <h6 class="title-achievement">5500+</h6>
+          <p class="small-desc-achievement">Completed Property</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="wrap-item-achievements">
+          <img src="assets/images/achievements/2.svg" alt="" class="img-fluid">
+          <h6 class="title-achievement">2200+</h6>
+          <p class="small-desc-achievement">Property Sales</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="wrap-item-achievements">
+          <img src="assets/images/achievements/3.svg" alt="" class="img-fluid">
+          <h6 class="title-achievement">1200+</h6>
+          <p class="small-desc-achievement">Appartment Rent</p>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="wrap-item-achievements">
+          <img src="assets/images/achievements/4.svg" alt="" class="img-fluid">
+          <h6 class="title-achievement">700+</h6>
+          <p class="small-desc-achievement">Happy Clients</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="row  achievements-reponsive-small">
+      <div class="col-6">
+        <div class="wrap-item-achievements">
+          <img src="assets/images/achievements/1.svg" alt="" class="img-fluid">
+          <h6 class="title-achievement">5500+</h6>
+          <p class="small-desc-achievement">Completed Property</p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="wrap-item-achievements">
+          <img src="assets/images/achievements/2.svg" alt="" class="img-fluid">
+          <h6 class="title-achievement">2200+</h6>
+          <p class="small-desc-achievement">Property Sales</p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="wrap-item-achievements">
+          <img src="assets/images/achievements/3.svg" alt="" class="img-fluid">
+          <h6 class="title-achievement">1200+</h6>
+          <p class="small-desc-achievement">Appartment Rent</p>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="wrap-item-achievements">
+          <img src="assets/images/achievements/4.svg" alt="" class="img-fluid">
+          <h6 class="title-achievement">700+</h6>
+          <p class="small-desc-achievement">Happy Clients</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- *************************************************** ACHIEVEMENTS SECTION END *************************************************** -->
+
+<!-- *************************************************** CALL TO ACTION SECTION START *************************************************** -->
+<section class="wrapper-cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="wrapper-heading">
+          <h3 class="text-center">Looking for Property Management?</h3>
+          <p class="text-center">Our professional property management experts would like to take care of your investment and your tenant. We offer simple transparent Standard and Premium packages </p>
+          <a href="/property-mangement" class="btn btn-primary btn-cta">JOIN US NOW</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- *************************************************** CALL TO ACTION SECTION END *************************************************** -->

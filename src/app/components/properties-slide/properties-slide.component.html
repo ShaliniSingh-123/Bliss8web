@@ -1,0 +1,75 @@
+<div    class="swiper swiper-container mySwiper">
+  <div class="swiper-wrapper">
+    <div (click)="prevslide()"  [ngClass]="(propertydetails.length > maxsliderPerView ? maxsliderPerView :propertydetails.length - 1).toString() == '1' ? 'swiper-button-prev1-singlecard' : 'swiper-button-prev1'"  >
+      <img src="assets/images/arrow-prev.svg" alt="">
+    </div>
+    <!-- loader dummy swiper  for showing loading card-->
+    <swiper *ngIf="dataloading" #gallery   [slidesPerView]="propertydetails.length > maxsliderPerView ? maxsliderPerView :propertydetails.length - 1 " [config]="config2"  [pagination]="{ clickable: true }">
+      <div  >
+        <img src="assets/images/arrow-next.svg" >
+      </div>
+      <ng-template ngIf="dataloading" swiperSlide   *ngFor="let item of [].constructor(maxsliderPerView); index as i " >
+        <app-skeleton-loader  [enable]="dataloading" ></app-skeleton-loader>
+
+      </ng-template>
+
+
+       <ng-template *ngIf="propertydetails.length >1"   class="card-container"  swiperSlide >
+      <div (click)="redirecttoAllproperties()" class="viewall-prop cards-styles">
+         {{endCardMessage}}
+
+       </div>
+            </ng-template>
+
+    </swiper>
+    <!-- swiper with real data -->
+    <swiper *ngIf="!dataloading" #gallery   [slidesPerView]="propertydetails.length > maxsliderPerView ? maxsliderPerView :propertydetails.length - 1 " [config]="config2"  [pagination]="{ clickable: true }">
+      <div  >
+        <img src="assets/images/arrow-next.svg" >
+      </div>
+      <ng-template *ngFor="let property of propertydetails" swiperSlide>
+            <div  class="card-container cards-styles">
+            <app-card-result
+            [id]="property.id"
+            [nBeds]="property.bedroom"
+            [nGarage]="property.parking"
+            [title]="property.titleEn"
+            [location]="(property.community +', '+ property.city) "
+            [price]="property.price"
+            [nBaths]="property.bathroom"
+            [nSqft]="property.size"
+            [image]="property.photos[0]"
+            [link]="'/property-details?propertyid='+ property.id"
+            >
+            </app-card-result>
+          </div>
+
+      </ng-template>
+      <ng-template *ngIf="propertydetails.length >1"   class="card-container"  swiperSlide >
+       <!-- <div (click)="redirecttoAllproperties()" class="viewall-prop cards-styles">
+         {{endCardMessage}}
+
+
+       </div> -->
+
+       <div (click)="redirecttoAllproperties()" class="card-container cards-styles cardempty" >
+        <app-card-result  [cardEmpty]="true"
+        [nBeds]="1"
+        [nGarage]="1"
+        [title]="'titleEn'"
+        [location]="'location' "
+        [price]="4444"
+        [nBaths]="3"
+        [nSqft]="222"
+        ></app-card-result>
+
+       </div>
+            </ng-template>
+
+    </swiper>
+    <div (click)="nextslide()" [ngClass]="(propertydetails.length > maxsliderPerView ? maxsliderPerView :propertydetails.length - 1).toString() =='1' ? 'swiper-button-next-singlecard' : 'swiper-button-next1'"   >
+      <img src="assets/images/arrow-next.svg" >
+    </div>
+  </div>
+
+</div>

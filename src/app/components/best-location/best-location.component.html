@@ -1,0 +1,88 @@
+<section class="wrapper-locations">
+    <div *ngIf="!dataLoading" class="container">
+      <div class="wrapper-heading">
+        <h5 class="text-center">Explore Our Best Locations</h5>
+        <div class="text-center explore-details">Our experts will take you to the home of your dreams from premium gated communities to popular prestigious residential areas to experience exceptional urban living environment</div>
+      </div>
+      <div class="wrap-location-boxes">
+        <div class="location-box-small">
+          <div class="wrapper-location-item">
+            <a href="/property-search?community={{popLocations[1].popularLocation}}">
+              <img src="{{s3BucketHost}}pop-location/down-town.png" alt="" class="img-fluid img-location">
+              <div class="img-overlay"></div>
+              <div class="wrap-location-content">
+                <h4 class="property-title">{{popLocations[1].popularLocation}}   </h4>
+                <h6 class="property-count">{{popLocations[1].propertyCounts + " Properties"}} </h6>
+              </div>
+            </a>
+          </div>
+          <div class="wrapper-location-item">
+            <a href="/property-search?community={{popLocations[2].popularLocation}}">
+          <img src="{{s3BucketHost}}pop-location/al-reem.jpg" alt="" class="img-fluid img-location">
+              <div class="img-overlay"></div>
+              <div class="wrap-location-content">
+                <h4 class="property-title">{{popLocations[2].popularLocation}}</h4>
+                <h6 class="property-count">{{popLocations[2].propertyCounts + " Properties"}}</h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="location-box-small">
+          <div class="wrapper-location-item">
+            <a href="/property-search?community={{popLocations[3].popularLocation}}">
+              <img src="{{s3BucketHost}}pop-location/damac_hills.jpg" alt="" class="img-fluid img-location">
+              <div class="img-overlay"></div>
+              <div class="wrap-location-content">
+                <h4 class="property-title">{{popLocations[3].popularLocation}}</h4>
+                <h6 class="property-count">{{popLocations[3].propertyCounts + " Properties"}}</h6>
+              </div>
+            </a>
+          </div>
+          <div class="wrapper-location-item">
+            <a href="/property-search?community={{popLocations[0].popularLocation.trim()}}">
+              <img src="{{s3BucketHost}}pop-location/arabian-ranches.png" alt="" class="img-fluid img-location">
+              <div class="img-overlay"></div>
+              <div class="wrap-location-content">
+                <h4 class="property-title">{{popLocations[0].popularLocation}}</h4>
+                <h6 class="property-count">{{popLocations[0].propertyCounts + " Properties"}}</h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="location-box-big">
+          <div class="wrapper-location-item">
+            <a href="/property-search?community={{popLocations[8].popularLocation}}">
+              <img src="{{s3BucketHost}}pop-location/dubai-marina.png" alt="" class="img-fluid img-location img-location-big">
+              <div class="img-overlay"></div>
+              <div class="wrap-location-content location-content-big-card">
+                <h4 class="property-title">{{popLocations[8].popularLocation}}</h4>
+                <h6 class="property-count">{{popLocations[8].propertyCounts + " Properties"}}</h6>
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="location-box-small">
+          <div class="wrapper-location-item">
+            <a href="/property-search?community={{popLocations[4].popularLocation}}">
+              <img src="{{s3BucketHost}}pop-location/rashid_city.png" alt="" class="img-fluid img-location">
+              <div class="img-overlay"></div>
+              <div class="wrap-location-content">
+                <h4 class="property-title">{{popLocations[4].popularLocation}}</h4>
+                <h6 class="property-count">{{popLocations[4].propertyCounts + " Properties"}}</h6>
+              </div>
+            </a>
+          </div>
+          <div class="wrapper-location-item">
+            <a href="/property-search?community={{popLocations[5].popularLocation}}">
+              <img src="{{s3BucketHost}}pop-location/Town_Square.jpg" alt="" class="img-fluid img-location">
+              <div class="img-overlay"></div>
+              <div class="wrap-location-content">
+                <h4 class="property-title">{{popLocations[5].popularLocation}}</h4>
+                <h6 class="property-count">{{popLocations[5].propertyCounts + " Properties"}}</h6>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

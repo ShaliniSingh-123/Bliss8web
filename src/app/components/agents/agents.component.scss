@@ -1,0 +1,223 @@
+/* ======================= AGENTS STYLSES START ======================= */
+.wrapper-agents {
+    margin: 50px 0;
+}
+.agent-responsive{
+    display: none;
+}
+.patners-details {
+    text-align: center;
+    font: normal normal medium 17px/22px avenirRegular;
+    letter-spacing: 0px;
+    color: #6D7787;
+    opacity: 1;
+}
+
+.wrap-agent-item {
+    border: 1px solid #6d778733;
+    border-radius: 15px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.link-agent-card {
+    text-decoration: none;
+}
+
+.wrap-agent-item img {
+    height: 160px;
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+.agent-name {
+    margin-bottom: 0;
+    margin-top: 10px;
+    text-align: center;
+    font: normal normal 900 14px/21px avenirRegular;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+    font-weight: bold;
+}
+
+.agent-designation {
+    color: #6D7787;
+    font-family: avenirRegular;
+}
+
+.link-view-all-agents {
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-top: 30px;
+    display: block;
+}
+
+.link-view-all-agents:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.link-view-all-agents img {
+    width: 20px;
+    margin-left: 8px;
+}
+
+.swiper-button-prev-agent    {
+    // top: calc(50% - 50px) !important;
+    left: 8px !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: white !important;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 50%) !important;
+    border-radius: 100px !important;
+    z-index: 9999;
+    position: absolute;
+    cursor: pointer;
+    margin-top: 4rem;
+
+}
+
+.swiper-button-prev-agent img {
+    width: 20px;
+    margin-left: 0.5rem !important;
+    margin-top: 0.8rem;
+
+}
+
+.swiper-button-next-agent {
+    // top: calc(50% - 50px) !important;
+    margin-top: 4rem;
+    width: 40px !important;
+    height: 40px !important;
+    background: white !important;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 50%) !important;
+    border-radius: 100px !important;
+    z-index: 9999;
+    position: absolute;
+    right: 8px;
+    cursor: pointer;
+}
+
+.swiper-button-next-agent img {
+    width: 20px;
+    margin-left: 0.5rem !important;
+    margin-top: 0.8rem;
+
+}
+
+
+/* ======================= AGENTS STYLSES END ======================= */
+
+
+@media (max-width: 767px) {
+    .wrapper-search {
+        width: 100%;
+        position: absolute;
+        top: 20rem;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 100;
+        max-width: 1320px;
+        border-radius: 20px;
+    }
+    .achievements-reponsive{
+        display:none;
+        }
+        .achievements-reponsive-small{
+            display: flex;
+        }
+    .search-inner {
+        height: 100%;
+    }
+
+    .search-inner .nav-pills {
+        justify-content: center;
+    }
+
+    .search-inner .nav-pills .nav-item {
+        margin-top: -80px;
+    }
+
+    .search-inner .nav-pills .nav-item .nav-link.active {
+        background: white;
+        color: var(--secondry-color);
+        font-size: 16px;
+        padding: 8px 30px;
+        font-weight: bold;
+    }
+
+    .search-inner .nav-pills .nav-item .nav-link {
+        color: white;
+        font-size: 16px;
+        padding: 8px 30px;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .search-inner .nav-pills .nav-item .nav-link.active::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+        border-color: transparent;
+        border-width: 9px;
+        border-style: solid;
+        border-color: white transparent transparent;
+    }
+
+    .btn-search {
+        width: 100%;
+        height: 2.1rem !important;
+        font-size: 0.7rem;
+    }
+
+    .search-icon {
+        height: 0.6rem;
+        width: 0.6rem;
+    }
+
+    .wrap-item-wcu {
+        margin: 1rem;
+    }
+
+    .wrapper-wcu {
+        background: #F0F1F2;
+        padding: 20px 0;
+    }
+
+    .wrap-agent-item {
+        margin-top: 0.8rem;
+    }
+
+    .location-box-small {
+        width: 100%;
+    }
+
+    .location-box-big {
+        width: 100%;
+    }
+    .wrapper-filte-responsive {
+        margin-top: 1rem !important;
+        justify-content: center !important;
+        cursor: pointer;
+    }
+    .btn-primary {
+        font-size: 0.6rem;
+    }
+    .wrap-blog-item {
+        margin-top: 1rem;
+    }
+    .agent-responsive{
+        display: flex;
+    }
+    .agent-reponsive-large{
+        display: none   ;
+    }
+}
+

@@ -1,0 +1,21 @@
+.clear-button {
+    background: var(--secondry-color) !important;
+    color: white;
+  }
+
+
+tr.mat-header-row.cdk-header-row
+{
+    background: var(--secondry-color) !important;
+    color: white !important;
+    text-decoration-color: white !important;
+
+// color: white !important;
+}
+.mat-table{    
+    border-radius: 8px;
+    overflow:hidden !important;
+}
+.w-100 {
+    width: 100%;
+   }

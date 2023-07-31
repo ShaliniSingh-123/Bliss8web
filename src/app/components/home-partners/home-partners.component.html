@@ -1,0 +1,66 @@
+<section class="wrapper-partners">
+    <div class="container">
+      <div class="wrapper-heading">
+        <h5 class="text-center">Our Partners</h5>
+        <p class="text-center patners-sub"> We have partnered with diverse affordable and high end leading developers covering all areas of Dubai popular amongst property seekers from Urban to Waterfront lifestyle with impressive infrastructure.</p>
+      </div>
+      <div class="wrapper-partners">
+        
+
+    <div class="center slider">
+          <!-- <swiper [config]="config" [pagination]="{ clickable: true }" [watchSlidesProgress]="true"> -->
+            <swiper [spaceBetween]="10" [config]="config" [navigation]="{ nextEl: '.swiper-button-next1', 
+            prevEl: '.swiper-button-prev1'}" [pagination]="{ clickable: true }">
+
+                <ng-container *ngFor="let item of partners">
+                    <ng-template swiperSlide class="slider-width-div">
+                        <div class="wrapper-img-partners">
+                        <img  src="{{s3BucketHost}}{{item.folderName}}/{{item.image}}" class="img-partners">
+                       </div>
+                    </ng-template>
+                </ng-container>
+            </swiper>
+        </div>
+      </div>
+    </div>
+  
+  
+  </section>
+
+            <!-- <ng-template swiperSlide class="slider-width-div">
+              <div>
+                <img src="assets/images/partners/2.png" class="img-partners">
+              </div>
+            </ng-template>
+            <ng-template swiperSlide class="slider-width-div">
+              <div>
+                <img src="assets/images/partners/3.png" class="img-partners">
+              </div>
+            </ng-template>
+            <ng-template swiperSlide class="slider-width-div">
+              <div>
+                <img src="assets/images/partners/4.png" class="img-partners">
+              </div>
+            </ng-template>
+            <ng-template swiperSlide class="slider-width-div">
+              <div>
+                <img src="assets/images/partners/5.png" class="img-partners">
+              </div>
+            </ng-template>
+            <ng-template swiperSlide class="slider-width-div">
+              <div>
+                <img src="assets/images/partners/6.png" class="img-partners">
+              </div>
+            </ng-template>
+            <ng-template swiperSlide class="slider-width-div">
+              <div>
+                <img src="assets/images/partners/7.png" class="img-partners">
+              </div>
+            </ng-template>
+            <ng-template swiperSlide class="slider-width-div">
+              <div>
+                <img src="assets/images/partners/1.png" class="img-partners">
+              </div>
+            </ng-template> -->
+  
+          

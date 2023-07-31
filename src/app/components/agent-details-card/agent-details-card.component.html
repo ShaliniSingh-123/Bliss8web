@@ -1,0 +1,20 @@
+<div class="wrapper-service-item property-handover" [style.backgroundImage]="'url('+agentPhotoUrl+'' + photo + ')'">
+  <div class="overlay"></div>
+  <div class="content-service-item container">
+    <div class="top-container">
+      <div class="names">{{ agentName }}</div>
+      <h6>{{ specialization }}</h6>
+      <br />
+    </div>
+
+    <div class="middle g-1">
+      <h6 class="hide">Tel: {{ phoneno }}</h6>
+      <button
+        (click)="onclicked.emit()"
+        class="button-view-profile btn btn-primary btn-my-account hide"
+      >
+        VIEW PROFILE
+      </button>
+    </div>
+  </div>
+</div>

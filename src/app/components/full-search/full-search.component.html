@@ -1,0 +1,449 @@
+<section class="wrapper-search" [ngStyle]="{'bottom': up}">
+  <div class="container">
+    <div class="search-inner">
+      <ul class="nav nav-pills" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation"  (click)="switchRent()">
+          <button class="nav-link active" id="pills-rent-tab" data-bs-toggle="pill" data-bs-target="#pills-rent"
+            type="button" role="tab" aria-controls="pills-rent"  aria-selected="true">Rent</button>
+        </li>
+        <li class="nav-item" role="presentation" (click)="switchBuy('RS')">
+          <button class="nav-link" id="pills-buy-tab" data-bs-toggle="pill" data-bs-target="#pills-buy" type="button"
+            role="tab" aria-controls="pills-buy" aria-selected="false" >Buy</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="pills-tabContent">
+
+        <div class="tab-pane fade show active" id="pills-rent" role="tabpanel" aria-labelledby="pills-rent-tab"
+          tabindex="0">
+          <form [formGroup]="form">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+                  <div class="row">
+
+                    <div class="col-md-8">
+                      <app-search-bar (newLocationEvent)="getSelecetedLocations($event)"
+                        [allLocations]="availableLocations"></app-search-bar>
+
+                    </div>
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <form>
+                          <label class="form-label uppercase"><strong>Type</strong></label>
+
+                          <div class="wrap-select-input">
+                            <!-- <select name="" class="form-control ">
+                            <option class="wrap-option-select">Property Type</option>
+                            <option value="Villa" class="wrap-option">Villa</option>
+                            <option value="Appartment" class="wrap-option">Appartment</option>
+                            <option value="Residential" class="wrap-option">Residential</option>
+                          </select> -->
+                            <mat-select class="form-control form-control-genrl" id="property_type"
+                              (change)="selectOption($any($event.target).value)" name="propertySelectType"
+                              [(ngModel)]="propertySelectType" style="margin-bottom: 0%;margin-top: 6.5%;">
+                              <mat-option value="">All</mat-option>
+                              <ng-container *ngFor="let item of CRM_CONSTANTS.property_type ">
+                                <mat-option *ngIf="!item.hide" [disabled]="item.disabled" value={{item.value}}>
+                                  {{item.name}}</mat-option>
+                              </ng-container>
+                            </mat-select>
+                          </div>
+                        </form>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="col-md-4 d-flex gap-4  wrapper-filte-responsive advance-filter-btn">
+                  <!-- <div class="d-flex mt-1" (click)="showModal()"> -->
+                  <div class="d-flex mt-1" (click)="toggleExpansionRent() ">
+
+                    <div class="mt-1"><img src="assets/images/filter.svg" alt="" class="filter-btn-icon"></div>
+                    <div class=""> Advanced <br />Filter</div>
+                  </div>
+                  <div class="row" style="margin-top: -10px; margin-bottom:10px">
+                    <div class="col-12">
+                      <button class="btn btn-primary btn-search" (click)="onSearchRent()" type="submit"><img
+                          src="assets/images/search.svg" alt=""> Search</button>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primar bg btn-search clear-button" (click)=" ClearInputsRent()">
+                        Clear
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+                <!-- <advance-search></advance-search> -->
+              </div>
+            </div>
+          </form>
+          <mat-accordion id="AccordionRent" class="example-headers-align" style="visibility: hidden !important;">
+
+            <mat-expansion-panel [expanded]="openCollapseRent==1">
+              <div class="row">
+                <div class="col-4">
+                  <label for="bedroomFormControlInput" class="form-label uppercase"><strong>Bedrooms</strong></label>
+    
+                  <div class="row">
+                    <div class="col-3" style="margin: 0 0 0 0;  ">
+                      <mat-checkbox [(ngModel)]="bedroomVariables[0]" name="BedroomRentCheckBoxsStudio"
+                        (change)="checkConsoleBedroom()" value="studio">Studio</mat-checkbox>
+    
+                    </div>
+                    <div class="col-2" style="margin: 0 0 0 0;margin-left: 0%;">
+                      <mat-checkbox [(ngModel)]="bedroomVariables[1]" name="BedroomRentCheckBoxs1"
+                        (change)="checkConsoleBedroom()" value="1">1</mat-checkbox>
+    
+                    </div>
+                    <div class="col-2" style="margin: 0 0 0 0;">
+                      <mat-checkbox [(ngModel)]="bedroomVariables[2]" name="BedroomRentCheckBoxs2"
+                        (change)="checkConsoleBedroom()" value="2">2</mat-checkbox>
+    
+                    </div>
+                    <div class="col-2" style="margin: 0 0 0 0;">
+                      <mat-checkbox [(ngModel)]="bedroomVariables[3]" name="BedroomRentCheckBoxs3"
+                        (change)="checkConsoleBedroom()" value="3">3</mat-checkbox>
+    
+                    </div>
+                    <div class="col-2" style="margin: 0 0 0 0;">
+                      <mat-form-field class="custom-select BedroomRentCheckBoxsMore" style="margin-top: -50%;width:60px;">
+    
+                        <mat-label>More</mat-label>
+                        <mat-select multiple (selectionChange)="UpdateExtraBedroom($event.value)"
+                          [(ngModel)]="InitialBedroomExtra">
+                          <!-- <mat-option value="">Select a name...</mat-option> -->
+    
+                          <mat-option *ngFor="let topping of BedroomList;let indexOfelement=index;" [value]="topping">
+                            {{topping}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <mat-divider style="margin-top: -4%;"></mat-divider>
+    
+                  </div>
+                  <!-- <mat-divider style="margin-top: -9%;  border-color: gray; border-width: 0.5px;"></mat-divider> -->
+    
+                </div>
+                <div class="col-3">
+                  <label for="bathroomsFormControlInput" class="form-label uppercase"><strong>Bathrooms</strong></label>
+    
+                  <div class="row">
+                    <div class="col-3" style="margin: 0 0 0 0;margin-right: -5%;">
+                      <mat-checkbox [(ngModel)]="bathroomVariables[0]" (change)="checkConsoleBathRoom()">1</mat-checkbox>
+    
+                    </div>
+                    <div class="col-3" style="margin: 0 0 0 0;margin-right: -5%;">
+                      <mat-checkbox [(ngModel)]="bathroomVariables[1]" (change)="checkConsoleBathRoom()">2</mat-checkbox>
+    
+                    </div>
+                    <div class="col-3" style="margin: 0 0 0 0;margin-right: -5%;">
+                      <mat-checkbox [(ngModel)]="bathroomVariables[2]" (change)="checkConsoleBathRoom()">3</mat-checkbox>
+    
+                    </div>
+                    <div class="col-3" style="margin: 0 0 0 0;">
+                      <mat-form-field class="custom-select" style="margin-top: -50%;width:60px">
+    
+                        <mat-label>More</mat-label>
+                        <mat-select multiple (selectionChange)="UpdateExtraBathroom($event.value)"
+                          [(ngModel)]="InitialBathroomExtra">
+    
+                          <mat-option *ngFor="let topping of BathroomList" [value]="topping">{{topping}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <mat-divider style="margin-top: -4%;"></mat-divider>
+    
+                  <!-- <mat-divider style="margin-top: -9%;  border-color: rgb(0, 0, 0); border-width: 1px;color: black"></mat-divider> -->
+                </div>
+                <div class="col-3">
+                  <label for="parkingFormControlInput" class="form-label uppercase"><strong>Parking</strong></label>
+    
+                  <div class="row">
+                    <div class="col-3" style="margin: 0 0 0 0;margin-right: -5%;">
+                      <mat-checkbox [(ngModel)]="parkingVariables[0]" (change)="checkConsoleParking()">1</mat-checkbox>
+    
+                    </div>
+                    <div class="col-3" style="margin: 0 0 0 0;margin-right: -5%;">
+                      <mat-checkbox [(ngModel)]="parkingVariables[1]" (change)="checkConsoleParking()">2</mat-checkbox>
+    
+                    </div>
+                    <div class="col-3" style="margin: 0 0 0 0;margin-right: -5%;">
+                      <mat-checkbox [(ngModel)]="parkingVariables[2]" (change)="checkConsoleParking()">3</mat-checkbox>
+    
+                    </div>
+                    <div class="col-3" style="margin: 0 0 0 0;">
+                      <mat-form-field class="custom-select" style="margin-top: -50%;width:60px">
+    
+                        <mat-label>More</mat-label>
+                        <mat-select multiple (selectionChange)="UpdateExtraParking($event.value)"
+                          [(ngModel)]="InitialParkingExtra">
+    
+                          <mat-option *ngFor="let topping of ParkingList" [value]="topping">{{topping}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <mat-divider style="margin-top: -4%;"></mat-divider>
+    
+                  <!-- <mat-divider style="margin-top: -9%;  border-color: rgb(0, 0, 0); border-width: 1px;color: black"></mat-divider> -->
+    
+                </div>
+                <div class="col-2" style="margin-left: -1%;">
+                  <div class="row">
+                    <div class="col-12">
+                      <label for="amenitiesFormControlInput1" class="form-label uppercase"><strong>Amenities</strong></label>
+    
+                      <mat-form-field class="custom-select" style="margin-top: -30%; margin-left: -20%;">
+    
+                        <mat-select multiple (selectionChange)="UpdateAmeneties($event.value)" [(ngModel)]="AmenitiesRent">
+    
+                          <mat-option *ngFor="let amenitie of availableAmenities" [value]="amenitie.code">{{amenitie.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <mat-divider style="margin-top: -6.5%;"></mat-divider>
+    
+                </div>
+                <div class="col-6">
+                  <label class="form-label uppercase"><strong>AREA</strong></label>
+                  <ngx-slider [(value)]="minValueRent" (userChange)="onUserChangeAreaRent($event)"
+                    [(highValue)]="maxValueRent" [options]="optionsAreaRent" style="margin-top:8%;margin-bottom: 0%;">
+                  </ngx-slider>
+    
+                </div>
+                <div class="col-6">
+                  <label for="exampleFormControlInput2" class="form-label uppercase"><strong>Investment</strong></label>
+    
+                  <ngx-slider (userChange)="onUserChangeInvestRent($event)"
+                   [(value)]="minPriceRent"
+                    [(highValue)]="maxPriceRent" [options]="optionPriceRent" style="margin-top:8%;margin-bottom: 0%;">
+                  </ngx-slider>
+                </div>
+              </div>
+            </mat-expansion-panel>
+    
+    
+    
+          </mat-accordion>
+        </div>
+
+        <div class="tab-pane fade" id="pills-buy" role="tabpanel" aria-labelledby="pills-buy-tab" tabindex="0">
+          <form [formGroup]="form">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-md-8">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <app-search-bar #locationsBuy (newLocationEvent)="getSelecetedLocationsBuy($event)"
+                        [allLocations]="availableLocations"></app-search-bar>
+                    </div>
+                    <div class="col-md-4">
+                      <form>
+                        <div class="form-group">
+                          <label class="form-label uppercase"><strong>Type</strong></label>
+                          <div class="wrap-select-input">
+                            <mat-select class="form-control form-control-genrl" id="property_typeBuy"
+                              (change)="selectOptionBuy($any($event.target).value)" name="propertySelectTypeBuy"
+                              [(ngModel)]="propertySelectTypeBuy" style="margin-bottom: 0%;margin-top: 6.5%;">
+                              <mat-option value='' selected>All</mat-option>
+                              <ng-container *ngFor="let item of CRM_CONSTANTS.property_type ">
+                                <mat-option *ngIf="!item.hide" [disabled]="item.disabled" value={{item.value}}>
+                                  {{item.name}}</mat-option>
+                              </ng-container>
+                            </mat-select>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 d-flex gap-4 wrapper-filte-responsive advance-filter-btn">
+                  <div class="d-flex mt-1" (click)="toggleExpansionBuy()">
+                    <div class="mt-1"><img src="assets/images/filter.svg" alt="" class="filter-btn-icon"></div>
+                    <div> Advanced <br />Filter</div>
+                  </div>
+                  <div class="row" style="margin-top: -10px; margin-bottom:10px">
+                    <div class="col-12">
+                      <button class="btn btn-primary btn-search" (click)="onSearchBuy()" type="submit"><img
+                          src="assets/images/search.svg" alt=""> Search</button>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primar bg btn-search clear-button" (click)="ClearInputsBuy()">
+                        Clear
+                      </button>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </form>
+          <mat-accordion id="AccordionBuy" class="example-headers-align" style="visibility: hidden !important;">
+
+            <mat-expansion-panel [expanded]="openCollapseBuy==1">
+              <div class="row">
+                <div class="col-4">
+                  <label class="form-label uppercase"><strong>Bedrooms</strong></label>
+    
+                  <div class="row">
+                    <div class="col-3" style="margin: 0 0 0 0;">
+                      <mat-checkbox [(ngModel)]="bedroomBuyVariables[0]" (change)="checkConsoleBedroomBuy()">Studio
+                      </mat-checkbox>
+    
+                    </div>
+                    <div class="col-2" style="margin: 0 0 0 0;margin-left: 0%;">
+                      <mat-checkbox [(ngModel)]="bedroomBuyVariables[1]" (change)="checkConsoleBedroomBuy()">1
+                      </mat-checkbox>
+    
+                    </div>
+                    <div class="col-2" style="margin: 0 0 0 0;">
+                      <mat-checkbox [(ngModel)]="bedroomBuyVariables[2]" (change)="checkConsoleBedroomBuy()">2
+                      </mat-checkbox>
+    
+                    </div>
+                    <div class="col-2" style="margin: 0 0 0 0;">
+                      <mat-checkbox [(ngModel)]="bedroomBuyVariables[3]" (change)="checkConsoleBedroomBuy()">3
+                      </mat-checkbox>
+    
+                    </div>
+                    <div class="col-2" style="margin: 0 0 0 0;">
+                      <mat-form-field class="custom-select" style="margin-top: -50%;width:60px;">
+    
+                        <mat-label>More</mat-label>
+                        <mat-select multiple (selectionChange)="UpdateExtraBedroomBuy($event.value)">
+    
+                          <mat-option *ngFor="let topping of BedroomList" [value]="topping">{{topping}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <mat-divider style="margin-top: -4%;"></mat-divider>
+    
+                  </div>
+                  <!-- <mat-divider style="margin-top: -9%;  border-color: gray; border-width: 0.5px;"></mat-divider> -->
+    
+                </div>
+                <div class="col-3">
+                  <label class="form-label uppercase"><strong>Bathrooms</strong></label>
+    
+                  <div class="row">
+                    <div class="col-3" style="margin: 0 0 0 0;margin-right: -5%;">
+                      <mat-checkbox [(ngModel)]="bathroomBuyVariables[0]" (change)="checkConsoleBathRoomBuy()">1
+                      </mat-checkbox>
+    
+                    </div>
+                    <div class="col-3" style="margin: 0 0 0 0;margin-right: -5%;">
+                      <mat-checkbox [(ngModel)]="bathroomBuyVariables[1]" (change)="checkConsoleBathRoomBuy()">2
+                      </mat-checkbox>
+    
+                    </div>
+                    <div class="col-3" style="margin: 0 0 0 0;margin-right: -5%;">
+                      <mat-checkbox [(ngModel)]="bathroomBuyVariables[2]" (change)="checkConsoleBathRoomBuy()">3
+                      </mat-checkbox>
+    
+                    </div>
+                    <div class="col-3" style="margin: 0 0 0 0;">
+                      <mat-form-field class="custom-select" style="margin-top: -50%;width:60px">
+    
+                        <mat-label>More</mat-label>
+                        <mat-select multiple (selectionChange)="UpdateExtraBathroomBuy($event.value)">
+    
+                          <mat-option *ngFor="let topping of BathroomList" [value]="topping">{{topping}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <!-- <mat-divider style="margin-top: -9%;  border-color: rgb(0, 0, 0); border-width: 1px;color: black"></mat-divider> -->
+                  <mat-divider style="margin-top: -4%;"></mat-divider>
+    
+                </div>
+                <div class="col-3">
+                  <label class="form-label uppercase"><strong>Parking</strong></label>
+    
+                  <div class="row">
+                    <div class="col-3" style="margin: 0 0 0 0;margin-right: -5%;">
+                      <mat-checkbox [(ngModel)]="parkingBuyVariables[0]" (change)="checkConsoleParkingBuy()">1
+                      </mat-checkbox>
+    
+                    </div>
+                    <div class="col-3" style="margin: 0 0 0 0;margin-right: -5%;">
+                      <mat-checkbox [(ngModel)]="parkingBuyVariables[1]" (change)="checkConsoleParkingBuy()">2
+                      </mat-checkbox>
+    
+                    </div>
+                    <div class="col-3" style="margin: 0 0 0 0;margin-right: -5%;">
+                      <mat-checkbox [(ngModel)]="parkingBuyVariables[2]" (change)="checkConsoleParkingBuy()">3
+                      </mat-checkbox>
+    
+                    </div>
+                    <div class="col-3" style="margin: 0 0 0 0;">
+                      <mat-form-field class="custom-select" style="margin-top: -50%;width:60px">
+    
+                        <mat-label>More</mat-label>
+                        <mat-select multiple (selectionChange)="UpdateExtraParkingBuy($event.value)">
+    
+                          <mat-option *ngFor="let topping of ParkingList" [value]="topping">{{topping}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <!-- <mat-divider style="margin-top: -9%;  border-color: rgb(0, 0, 0); border-width: 1px;color: black"></mat-divider> -->
+                  <mat-divider style="margin-top: -4%;"></mat-divider>
+    
+                </div>
+                <div class="col-2" style="margin-left: -1%;">
+                  <div class="row">
+                    <div class="col-12">
+                      <label class="form-label uppercase"><strong>Amenities</strong></label>
+    
+                      <mat-form-field class="custom-select" style="margin-top: -30%; ">
+    
+                        <mat-select multiple (selectionChange)="UpdateAmenetiesBuy($event.value)">
+    
+                          <mat-option *ngFor="let amenitie of availableAmenities" [value]="amenitie.code">{{amenitie.name}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                  </div>
+                  <mat-divider style="margin-top: -6.5%;"></mat-divider>
+    
+                </div>
+                <div class="col-6">
+                  <label for="exampleFormControlInput3" class="form-label uppercase"><strong>AREA</strong></label>
+                  <ngx-slider [(value)]="minValueBuy" (userChange)="onUserChangeInvestBuy($event)"
+                    [(highValue)]="maxValueBuy" [options]="optionsAreaBuy" style="margin-top:8%;margin-bottom: 0%;">
+                  </ngx-slider>
+    
+                </div>
+                <div class="col-6">
+                  <label for="exampleFormControlInput4" class="form-label uppercase"><strong>Investment</strong></label>
+    
+                  <ngx-slider [(value)]="minPriceBuy" (userChange)="onUserChangeAreaBuy($event)" [(highValue)]="maxPriceBuy"
+                    [options]="optionPriceBuy" style="margin-top:8%;margin-bottom: 0%;"></ngx-slider>
+                </div>
+              </div>
+    
+    
+    
+    
+            </mat-expansion-panel>
+    
+    
+    
+          </mat-accordion> 
+        </div>
+
+      </div>
+      <div class="example-action-buttons">
+      </div>
+    
+   
+
+    </div>
+  </div>
+</section>

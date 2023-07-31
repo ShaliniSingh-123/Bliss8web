@@ -1,0 +1,349 @@
+<section class="wrapper-cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="wrapper-heading">
+                    <h3 class="text-center">Properties</h3>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Properties</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="wrapper-property-search">
+
+    <div class="container-custom">
+        <div class="row">
+            <div class="col-md-3">
+                <form (ngSubmit)="onSubmit(formdemo)" #formdemo="ngForm">
+                    <div class="wrapper-property-filters">
+                        <div class="wrapper-filters-header">
+                            <div class="row">
+                                <div class="col-9">
+                                    <h1 class="section-title">Property Filters</h1>
+                                </div>
+                                <div class="col-3">
+                                    <a (click)="mapViewNavigate()">
+                                        <img src="../../../assets/images/map-icon.svg" alt=""
+                                            class="img-fluid img-map-filters cursor">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="showpropertySearch" class="wrapper-filters-content">
+                            <!-- <div class="wrap-select-input">
+                              <img src="../../../assets/images/select-arrow.svg" alt="" class="selet-arrow">
+                              <select name="" class="form-control form-control-genrl" name="offeringtype" [(ngModel)]="propertyofferingType">
+                                <option value =''>All</option>
+                                <ng-container  *ngFor="let item of CRM_CONSTANTS.offering_type ">
+                                  <option *ngIf="!item.hide"
+                                  [disabled]="item.disabled" value = {{item.value}} > {{item.name}}</option>
+                                </ng-container>
+                              </select>
+                          </div> -->
+                            <app-search-bar (newLocationEvent)="getSelecetedLocations($event)"
+                                [allLocations]="availableLocations" [defaultSelectedLoction]="PreselectedCommunity">
+                            </app-search-bar>
+            
+                    
+                            <div class="row">
+                                <mat-form-field>
+                                    <mat-label>Offering type</mat-label>
+
+    
+                                <mat-select  id="propertyofferingType" 
+                                (selectionChange)="selectOption($any($event).value)" name="propertyofferingType"
+                                [(ngModel)]="propertyofferingType" >
+                                <mat-option value="RR">Rent</mat-option>
+                                <mat-option value="RS">Buy</mat-option>
+    
+                              </mat-select>
+                                </mat-form-field>
+                                <mat-form-field>
+                                    <mat-label>Property type</mat-label>
+
+
+                                    <mat-select multiple>
+                                        <mat-option>All</mat-option>
+                                        <ng-container *ngFor="let item of CRM_CONSTANTS.property_type ">
+                                            <mat-option *ngIf="!item.hide" [disabled]="item.disabled"
+                                                value={{item.value}}> {{item.name}}</mat-option>
+                                        </ng-container>
+
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="row">
+                                <mat-form-field >
+                                    <mat-label>Bed Rooms</mat-label>
+                                    <mat-select multiple>
+                                        <mat-option>All</mat-option>
+                                        
+                                        <ng-container *ngFor="let item of CRM_CONSTANTS.bedroom ">
+                                            <mat-option *ngIf="!item.hide" [disabled]="item.disabled"
+                                                value={{item.value}}>
+                                                {{item.name}}</mat-option>
+                                        </ng-container>
+
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="row">
+                                <mat-form-field>
+                                    <mat-label>Bathroom</mat-label>
+                                    <mat-select multiple>
+                                        <mat-option>All</mat-option>
+
+                                        <ng-container *ngFor="let item of CRM_CONSTANTS.bathroom ">
+                                            <mat-option *ngIf="!item.hide" [disabled]="item.disabled"
+                                                value={{item.value}}>
+                                                {{item.name}}</mat-option>
+                                        </ng-container>
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                            <div class="row">
+                                <mat-form-field>
+                                    <mat-label>Parking</mat-label>
+                                    <mat-select multiple>
+                                        <mat-option>All</mat-option>
+
+                                        <ng-container *ngFor="let item of CRM_CONSTANTS.parking ">
+                                            <mat-option *ngIf="!item.hide" [disabled]="item.disabled"
+                                                value={{item.value}}>
+                                                {{item.name}}</mat-option>
+                                        </ng-container>
+
+                                    </mat-select>
+                                </mat-form-field>
+                            </div>
+
+                           <div class="wrap-area-slider slider-styles-genrl">
+                                <label class="lbl-genrl">Home Area (Sqft)</label>
+                                <ngx-slider [(value)]="areaMinValue" [(highValue)]="areaMaxValue" [options]="Area">
+                                </ngx-slider>
+                            </div>
+
+                            <div class="wrap-price-slider slider-styles-genrl">
+                                <label class="lbl-genrl">Price (AED)</label>
+                                <ngx-slider [(value)]="priceMinValue" [(highValue)]="priceMaxValue" [options]="Price">
+                                </ngx-slider>
+                            </div>
+                            <div class="mt-2"><span (click)="toggoleButton()"><span *ngIf="!toggoleShow"
+                                        class="plus-icon">+</span><span *ngIf="toggoleShow" class="minus-icon">-</span>
+                                </span><span *ngIf="!toggoleShow" class="mr-2"> Other features</span><span
+                                    *ngIf="toggoleShow" class="mr-2"> Less Features</span></div>
+                            <div *ngIf="toggoleShow">
+
+                                <app-advance-features [SelectedDefault]="pre_selectedAmenties"
+                                    (selectedItem)="Amenties_setter($event)"></app-advance-features>
+                                <div class="mt-2">
+                                    <input type="text" class="form-control form-control-genrl"
+                                        placeholder="Enter Keyword">
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-7">
+                                    <button class="btn btn-primary btn-filter-search" type="submit"><img
+                                            src="../../../assets/images/search.svg" style="margin-right: 5px;" alt="">Search</button>
+                                </div>
+                                <div class="col-5">
+                                    <button class="btn btn-primary clear-button btn-filter-search" type="button"
+                                        (click)="ClearSearch()">Clear</button>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </form>
+
+                <div class="wrapper-latest-properties">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="section-title">Latest Properties</h1>
+                            <div>
+                                <app-properties-slide #sDropDown [NumOfProperties]="5" [maxsliderPerView]="1"
+                                    [query]="{}"></app-properties-slide>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="wrapper-property-listing  ">
+
+
+                    <div id="scrollto" class="row">
+                        <div class="col-md-3 col-12 col-align-center">
+                            <p>Showing {{ numberOfElements }} – {{ numberOfElements + apihasNoofElement}} of
+                                {{totalNoofElements}} Results</p>
+                        </div>
+                        <div class="col-md-9 col-12 col-align-center text-end">
+                            {{ 'Sort By - '}}
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
+                                    [(ngModel)]="sortOption1" (change)="onSortChnage($event)" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Latest</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
+                                    [(ngModel)]="sortOption1" (change)="onSortChnage($event)" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Lowest Price</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3"
+                                    [(ngModel)]="sortOption1" (change)="onSortChnage($event)" value="option3">
+                                <label class="form-check-label" for="inlineRadio3">Highest Price</label>
+                            </div>
+                            <!-- <div class="form-check form-check-inline">
+                                <input disabled class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    id="inlineRadio3" [(ngModel)]="sortOption1" (change)="onSortChnage($event)"
+                                    value="option4">
+                                <label class="form-check-label" for="inlineRadio3">Star Rating</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input disabled class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    id="inlineRadio3" [(ngModel)]="sortOption1" (change)="onSortChnage($event)"
+                                    value="option5">
+                                <label class="form-check-label" for="inlineRadio3">Best Value</label>
+                            </div> -->
+                            <!-- <div class="wrap-select-input">
+                                <span>Sort by:</span>
+                                <img src="../../../assets/images/select-arrow.svg" alt="" class="selet-arrow select-arrow-sort">
+                                <select name="" class="form-control form-control-genrl input-sort">
+                                    <option value="">Select Option</option>
+                                    <option value="">Lowest Price</option>
+                                    <option value="">Star Rating</option>
+                                    <option value="">Best Value</option>
+                                </select>
+                            </div> -->
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div [ngClass]="!(i >= 2) ? '' : 'd-none d-lg-block'" class="col-md-6 col-lg-4 "
+                            *ngFor="let item of [].constructor(3); index as i ">
+                            <app-skeleton-loader [enable]="allpropertiesLoading"></app-skeleton-loader>
+
+                        </div>
+                        <div class="col-md-6 col-lg-4"
+                            *ngFor="let prop of allProperties  | paginate: { currentPage: currentpage,itemsPerPage:PropertiesPerApicall, totalItems: totalNoofElements }">
+                            <!-- [nBaths]="prop."
+                            [nBeds]=""
+                            [location]=""
+                            [nSqft]="" -->
+
+                            <app-card-result [nBaths]="prop.bathroom" [location]="(prop.community +', '+ prop.city) "[id]="prop.id"
+                                [nBeds]="prop.bedroom" [nBeds]="prop.bedroom" [nGarage]="prop.parking"
+                                [title]="prop.titleEn" [price]="prop.price" [nBaths]="prop.bathroom" [nSqft]="prop.size"
+                                [image]="prop.photos[0]" [link]="'/property-details?propertyid='+ prop.id">
+
+                            </app-card-result>
+                            <!-- <div class="wrap-property-item">
+                                <a href="" class="link-property">
+                                    <div class="wrapper-thumb-featured-prop">
+                                        <img [src]="photoUrl+prop.photos[0]?.folderIndex+'/'+prop.photos[0]?.photoName"
+                                            alt="" class="thumb-featured-prop">
+                                        <div class="label-featured">Featured</div>
+                                    </div>
+                                    <div class="wrapper-content-featured-prop">
+                                        <h5 class="prop-title">{{prop.titleEn}}</h5>
+                                        <p class="prop-location">{{prop.community}}</p>
+                                        <div class="prop-summary-points">
+                                            <div class="row text-center">
+                                                <div class="col-3" data-toggle="tooltip" data-placement="bottom"
+                                                    title="beds {{prop.bedroom}}">
+                                                    <img src="../../assets/images/beds.svg" alt=""
+                                                        class="img-fluid icon-summary">
+                                                    <p class="title-summary">{{prop.bedroom}} </p>
+                                                </div>
+                                                <div class="col-3" data-toggle="tooltip" data-placement="bottom"
+                                                    title="bathroom {{prop.bathroom}}">
+                                                    <img src="../../assets/images/bath.svg" alt=""
+                                                        class="img-fluid icon-summary">
+                                                    <p class="title-summary">{{prop.bathroom}} </p>
+                                                </div>
+                                                <div class="col-3">
+                                                    <img src="../../assets/images/garage.svg" alt=""
+                                                        class="img-fluid icon-summary">
+                                                    <p class="title-summary">0</p>
+                                                     <p class="title-summary">Garage</p>
+
+                                                </div>
+                                                <div class="col-3" data-toggle="tooltip" data-placement="bottom"
+                                                    title="size {{prop.size}}">
+                                                    <img src="../../assets/images/area.svg" alt=""
+                                                        class="img-fluid icon-summary">
+                                                    <p class="title-summary">{{prop.size}} Sqft</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <hr class="property-card-divider">
+                                <div class="wrapper-property-price">
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <h4 class="prop-price">AED {{prop.price}}</h4>
+                                        </div>
+                                        <div class="col-2 text-right">
+                                            <a href=""><img [src]="prop.wishlist" alt=""
+                                                    class="img-fluid img-wishlist"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-center text-center justify-text-center"  [ngStyle]="{'visibility': visibleValue}">
+                    <h1>Ooops !...No record found</h1>
+
+                </div>
+                <!-- <pagination-controls (pageChange)="handlePageChange($event)" previousLabel=""
+                nextLabel="" class="my-pagination"></pagination-controls> -->
+                <div class="wrapper-property-pagination text-center mt-4">
+                    <pagination-controls (pageChange)="handlePageChange($event)" previousLabel="" nextLabel=""
+                        class="my-pagination"></pagination-controls>
+                    <!-- <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item first">
+                            <a class="page-link" href="" aria-label="Previous">
+                              <img src="../../../assets/images/pagination/arrow-prev.svg" alt="" class="arrow-prev">
+                            </a>
+                          </li>
+                          <li class="page-item square"><a class="page-link" href="">1</a></li>
+                          <li class="page-item square"><a class="page-link active" href="">2</a></li>
+                          <li class="page-item square"><a class="page-link" href="">3</a></li>
+                          <li class="page-item square"><a class="page-link" href="">4</a></li>
+                          <li class="page-item square"><a class="page-link" href="">...</a></li>
+                          <li class="page-item square"><a class="page-link" href="">10</a></li>
+                          <li class="page-item last">
+                            <a class="page-link" href="" aria-label="Next">
+                              <img src="../../../assets/images/pagination/arrow-next.svg" alt="" class="arrow-next">
+                            </a>
+                          </li>
+                        </ul>
+                      </nav>  -->
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>

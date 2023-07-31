@@ -1,0 +1,307 @@
+.main-container{
+
+}
+.container{
+  height: 90%;
+}
+
+.main-image{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+ margin: auto;
+ max-width: 100%;;
+ max-height: 90vh;
+ overflow: hidden;
+}
+.navigators-style{
+  width: 100%;
+   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  }
+.navigator-keys{
+  width: 15px;
+  color: aqua;
+  font-size: larger;
+  font-weight: 900;
+}
+
+
+
+///@at-root
+///
+@import '~swiper/swiper.min.css';
+@import '~swiper/modules/navigation/navigation.min.css';
+@import '~swiper/modules/pagination/pagination.min.css';
+
+/* ======================= SWIPER GENERAL STYLSES START ======================= */
+.swiper {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.swiper-slide {
+    font-size: 18px;
+    background: #fff;
+    border: 1px solid #6D778733;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-button-prev {
+   // top: calc(50% - 20px) !important;
+   // left: 10px !important;
+  //  right: auto !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: white !important;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 50%) !important;
+    border-radius: 100px !important;
+}
+
+.swiper-button-prev img {
+    width: 20px;
+    /* background-image: url('../../../assets/images/arrow-next.svg'); */
+}
+
+.swiper-button-next {
+   //top: calc(50% - 20px) !important;
+//right: 10px !important;
+  //  left: auto !important;
+    width: 40px !important;
+    height: 40px !important;
+    background: white !important;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 50%) !important;
+    border-radius: 100px !important;
+}
+
+.swiper-button-next img {
+    width: 20px;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    display: none !important;
+}
+
+/* ======================= SWIPER GENERAL STYLSES END ======================= */
+
+
+/* ======================= FEATURES STYLSES START ======================= */
+.wrapper-features {
+width: 100%;
+height: 100%;
+    //margin: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-features .swiper-slide {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.wrapper-features .swiper-slide .wrapper-feature-thumb img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.wrapper-features .swiper-slide .wrapper-feature-content {
+    padding: 15px;
+    color: #6D7787;
+}
+
+.wrapper-features .swiper-slide .wrapper-feature-content .feature-title {
+    color: var(--secondry-color);
+    text-align: left;
+    font: normal normal 900 17px/28px avenirRegular;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+.feature-small-desc {
+    text-align: left;
+    /* font: normal normal medium 14px/22px Avenir; */
+    font-family: avenirRegular;
+    letter-spacing: 0px;
+    color: #6D7787;
+    opacity: 1;
+}
+
+.link-property {
+    text-decoration: none;
+}
+
+/* ======================= FEATURES STYLSES END ======================= */
+
+
+
+/* ======================= FEATURED PROPERTIES STYLSES START ======================= */
+.wrapper-featured-properties {
+    margin: 40px 0;
+}
+
+.link-view-all-properties {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.link-view-all-properties:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.link-view-all-properties img {
+    width: 20px;
+    margin-left: 8px;
+}
+
+.wrapper-featured-properties .swiper-slide {
+    border-radius: 20px;
+    overflow: hidden;
+    width: 25% !important;
+}
+
+.wrapper-featured-properties .swiper-slide .wrapper-thumb-featured-prop {
+    position: reletive;
+}
+
+.label-featured {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    background: var(--primary-color);
+    color: white;
+    padding: 5px 15px;
+    font-weight: bold;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.wrapper-featured-properties .swiper-slide .wrapper-thumb-featured-prop img {
+    height: 100px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.thumb-feature {
+    height: 100px;
+    width: 350px;
+}
+
+.wrapper-featured-properties .swiper-slide .wrapper-content-featured-prop {
+    padding: 15px;
+    color: #6D7787;
+}
+
+.prop-title {
+    color: var(--secondry-color);
+    font-size: 20px;
+    margin-bottom: 0;
+}
+
+.prop-location {
+    margin-bottom: 10px;
+}
+
+p.title-summary {
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.prop-price {
+    color: var(--secondry-color);
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.property-card-divider {
+    margin: 0;
+    border-color: rgba(109, 119, 135, 1);
+}
+
+.wrapper-property-price {
+    padding: 15px;
+}
+
+.img-wishlist {
+    height: 20px;
+}
+.btn-close-modal{
+   background: url(../../../../assets/images/close.svg);
+   box-shadow: 0 0 0 0;
+
+}
+
+/* ======================= FEATURED PROPERTIES STYLSES END ======================= */
+.bg-yellow {
+    background-color: yellow;
+}
+
+.transition {
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.active-slide {
+    background-color: green;
+    color: #fff;
+}
+
+.bg-blue {
+    background-color: blue;
+    color: #fff;
+}
+.close-button{
+  width: 20px;
+  height: 20px;
+color: #fff;
+size: 20px;
+cursor: pointer;
+float: right;
+position: fixed;
+z-index: 1000;
+right: 30px;
+top: 30px;
+ }
+
+
+/* ======================= RESPONSIVE ======================= */
+@media (max-width: 768px) {
+
+    .wrapper-features {
+       // margin-top: 9rem;
+        // background-color: red;
+    }
+
+}
+
+@media only screen and (min-width: 376px) and (max-width: 768px) {
+    .wrapper-features {
+       // margin-top: 8rem;
+    }
+
+}
+mat-dialog-container{
+  background-color: transparent;
+
+}

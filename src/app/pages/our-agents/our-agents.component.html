@@ -1,0 +1,25 @@
+<!------------------------------------Image with title------------------------------------------------------->
+<div class="buy">
+  <div class="wrapper-overlay"></div>
+  <div class="content-overlay">
+    <h3>OUR AGENTS</h3>
+    <h6>Home / Agents</h6>
+  </div>
+</div>
+<!--------------------------------------------------------agents profile------------------------------------------------------>
+<div class="container mt-3">
+  <div class="row g-2 row-cols-1 row-cols-md-4 row-cols-sm-5">
+    <!-----------------------------first card-------------------------------------------------------->
+    <div *ngIf="agentList.length == 0">No Data Found</div>
+    <div *ngFor="let item of agentList" class="col-sm-6 col-md-4 col-lg-3">
+      <agent-details-card
+        [agentName]="item.name"
+        [specialization]="item.specialization"
+        [phoneno]="item.phone"
+        [photo]="item.photo"
+        (onclicked)="gotoAgentDetails(item.id)"
+      >
+      </agent-details-card>
+    </div>
+  </div>
+</div>

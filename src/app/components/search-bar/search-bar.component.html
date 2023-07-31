@@ -1,0 +1,55 @@
+<!-- <form [formGroup]="myForm" class="mt-3">
+    <ng-multiselect-dropdown
+        name="city"
+        [placeholder]="'Select Amenities'"
+        [data]="cities"
+        formControlName="city"
+        [settings]="dropdownSettings"
+        (onSelect)="onItemSelect($event)">
+    </ng-multiselect-dropdown>
+</form> -->
+
+
+<div class="row">
+  <div class="example-action-buttons">
+    <!-- <button mat-button (click)="accordion.openAll()">Expand All</button>
+    <button mat-button (click)="accordion.closeAll()">Collapse All</button> -->
+  </div>
+  <!-- #docregion multi -->
+ 
+<mat-form-field class="example-chip-list " style="height: 100px !important;
+overflow-y: auto !important;" >
+    <mat-label>                         <label for="exampleFormControlInput1" class="form-label uppercase"><strong>Location</strong></label>
+    </mat-label>
+    <mat-chip-list class="no-wrap" #chipList aria-label="location selection">
+      <mat-chip
+      class="no-wrap"
+        *ngFor="let location of locations"
+        (removed)="remove(location)">
+        {{location}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input placeholder="New location..." #locationInput style="border-bottom: 0px; height: 30px; margin: 0 0 0 0;"
+        [formControl]="locationCtrl" [matAutocomplete]="auto" [matChipInputFor]="chipList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
+        <!-- <input type="color" id="favcolor" name="favcolor" value="#00B8C6"> -->
+        <!-- <script>
+          var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+          ctx.strokeStyle = "red";
+        </script>
+         -->
+    </mat-chip-list>
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+      <div *ngFor="let location of filteredLocations | async">
+
+
+        <mat-option *ngIf="!locations.includes(location)" [value]="location">
+          {{location}}
+        </mat-option>
+      </div>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>

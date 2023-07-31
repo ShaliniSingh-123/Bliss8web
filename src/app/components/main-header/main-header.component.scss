@@ -1,0 +1,25 @@
+:root {
+    --primary-color: #00B8C6;
+    --secondry-color: #0A213C;
+}
+.headerLight{
+    .logo-dark{
+        display: none;
+    }
+}
+.headerDark{
+    position: unset !important;
+    .logo-light{
+        display: none;
+    }
+    .nav-item .nav-link {
+        color: var(--secondry-color);
+    }
+}
+.container-background-color{
+  width: 100%;
+  background-color: #F0F1F2;
+}
+.clickable{
+  cursor: pointer;
+}

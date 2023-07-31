@@ -1,0 +1,281 @@
+@font-face {
+    font-family: avenirRegular;
+    src: url(../fonts/avenir_ff/AvenirLTStd-Roman.otf);
+}
+@font-face {
+    font-family: avenirMedium;
+    src: url(../fonts/avenir_ff/AvenirLTStd-Roman.otf);
+}
+@font-face {
+    font-family: avenirBold;
+    src: url(../fonts/avenir_ff/AvenirLTStd-Black.otf);
+}
+
+/* ======================= SCROLLBAR START ======================= */
+
+
+body{
+    overflow-x: hidden;
+    position: relative;
+    overflow-y: scroll;
+    height: 100px;
+    right: 1px;
+    /* left: 3px; */
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+::-webkit-scrollbar-track {
+    background-color: #ebebeb;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: #6d6d6d;
+  }
+/* ======================= SCROLLBAR END ======================= */
+
+/* ======================= GLOBAL STYLSES START ======================= */
+body,input,select,textarea,label,div, a,section{
+    font-family: avenirRegular !important;
+    font-size: 14px !important;
+}
+h1,h2,h3,h4,h5,h6{
+    font-family: avenirRegular !important;
+}
+:root {
+    --primary-color: #00B8C6;
+    --secondry-color: #0A213C;
+}
+.btn-primary{
+    background: var(--primary-color) !important;
+    color: white;
+    border-radius: 4px !important;
+    border: 0;
+    padding: 10px 15px !important;
+    text-transform: uppercase;
+}
+.btn-primary:hover{
+    background: var(--secondry-color) !important;
+}
+.container-custom{
+    width: calc(100% - 150px);
+    display: block;
+    margin: 0 auto;
+}
+.uppercase{
+    text-transform: uppercase;
+}
+.inline-block{
+    display: inline-block !important;
+}
+.col-view-all{
+    text-align: right;
+}
+input, select{
+    height: 40px;
+}
+input:focus,
+select:focus,
+textarea:focus{
+    box-shadow: 0 0 0 0 !important;
+    outline: 0 !important;
+    border-color: var(--primary-color) !important;
+    border-width: 2px !important;
+}
+.lbl-genrl{
+    font-size: 1rem;
+}
+.btn:disabled{
+  opacity: 0.35 !important;
+}
+/* ======================= GLOBAL STYLSES END ======================= */
+
+/* ======================= NAVBAR STYLSES START ======================= */
+.navbar-brand img{
+    width: 70px;
+}
+.wrapper-navbar{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background: transparent;
+    z-index: 99;
+}
+.wrapper-navbar .nav-item .nav-link{
+    text-transform: uppercase;
+    color: white;
+    font-size: 14px;
+    position: relative;
+}
+.wrapper-navbar .nav-link.active::after{
+    content: '';
+    width: 40px;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 45px;
+    background: var(--primary-color);
+    margin: 0 auto;
+}
+.btn-my-account{
+    margin-left: 20px;
+    color: white !important;
+}
+.btn-my-account img{
+    width: 17px;
+    margin-right: 7px;
+    margin-top: -2px;
+}
+.link-call img{
+    width: 20px;
+    margin-right: 7px;
+    margin-top: -2px;
+}
+.wrapper-navbar .nav-item .nav-link {
+	float: left;
+	padding: 1rem;
+	position: relative;
+	text-decoration: none;
+    transition-duration: 0.5s;
+}
+.wrapper-navbar .nav-item.sub{
+    position: relative;
+    cursor: pointer;
+}
+.wrapper-navbar .nav-item ul {
+	visibility: hidden;
+    opacity: 0;
+    background: white;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
+    width: 240px;
+    padding-left: 0;
+    position: absolute;
+    transition: all 0.5s ease;
+    margin-top: 1rem;
+    right: 0;
+    top: 30px;
+    display: none;
+    border-radius: 4px;
+    list-style: none;
+    z-index: 9999999;
+    overflow: hidden;
+
+}
+.wrapper-navbar .nav-item ul li a{
+    color: var(--secondry-color) !important;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    padding: 20px 20px 15px !important;
+    width: 240px;
+}
+.wrapper-navbar .nav-item ul li:hover a{
+    background: var(--primary-color);
+    color: white !important;
+}
+.wrapper-navbar .nav-item:hover > ul,
+.wrapper-navbar .nav-item ul:hover {
+  visibility: visible;
+  opacity: 1;
+  display: block;
+}
+
+.wrapper-navbar .nav-item ul li {
+	clear: both;
+    width: 100%;
+}
+/* ======================= NAVBAR STYLSES END ======================= */
+
+
+/* ======================= CONTACT PAGE STYLSES START ======================= */
+.wrapper-page-title{
+    background-image: url(../images/img-cta.png);
+    background-size: 100% 100%;
+    color: white;
+    padding: 150px 0 80px;
+}
+.wrapper-page-title h3{
+    text-transform: uppercase;
+}
+.wrapper-contact-form{
+    margin: 70px 0;
+}
+.wrapper-contact-form .form-group{
+    margin-bottom: 40px;
+}
+.wrapper-contact-form .form-group input,
+.wrapper-contact-form .form-group select,
+.wrapper-contact-form .form-group textarea{
+    border: 0;
+    border-radius: 0;
+    border-bottom: 1px solid lightgray;
+    padding: 10px 0;
+}
+.btn-submit{
+    padding: 15px 50px !important;
+    display: block;
+    margin: 0 auto;
+}
+/* ======================= CONTACT PAGE STYLSES END ======================= */
+
+/* ======================= MEDIA QUERY STYLSES START ======================= */
+@media (max-width: 576px) {
+    .container-custom {
+        width: calc(100% - 30px);
+        display: block;
+        margin: 0 auto;
+    }
+    .navbar-brand img {
+        width: 55px;
+    }
+    .navbar-toggler{
+        background: transparent !important;
+        border: 0 !important;
+    }
+    .navbar-toggler:focus{
+        outline: 0;
+        box-shadow: 0 0 0 0;
+    }
+    .navbar-toggler-icon{
+        background-image: url(../images/hamburger.svg) !important;
+    }
+    .headerDark .navbar-toggler-icon{
+        background-image: url(../images/hamburgerDark.svg) !important;
+    }
+    .wrapper-navbar .navbar-nav{
+        margin-top: 30px;
+    }
+    .wrapper-navbar .nav-link.active::after {
+        content: '';
+        width: 24px !important;
+        height: 3px !important;
+        position: absolute;
+        left: -10px !important;
+        right: 0 !important;
+        top: 15px !important;
+        transform: rotate(90deg);
+        margin: 0 !important;
+    }
+    .wrapper-navbar .nav-item .nav-link {
+        padding-left: 12px;
+    }
+    .btn-my-account{
+        margin: 0 !important;
+    }
+    .wrapper-hero-section .carousel-indicators{
+        top: calc(55%) !important;
+        right: 30px;
+    }
+    .wrapper-page-title {
+        padding: 280px 0 30px !important;
+    }
+}
+/* ======================= MEDIA QUERY STYLSES END ======================= */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

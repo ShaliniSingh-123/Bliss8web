@@ -1,0 +1,77 @@
+<!-- *************************************************** PAGE TITLE SECTION START *************************************************** -->
+<mat-grid-list cols="24" style="margin-bottom: -5vh;">  
+    <mat-grid-tile colspan="2"></mat-grid-tile>
+
+    <mat-grid-tile colspan="4">
+<h4 style="text-align:left !important"><strong>My Properties </strong></h4><span> (72)</span>
+    </mat-grid-tile>
+
+
+</mat-grid-list>
+<mat-grid-list cols="24" rowHeight="100vh"  >
+    <mat-grid-tile colspan="2"></mat-grid-tile>
+    <mat-grid-tile colspan="20" >
+   
+        <table  
+       
+        
+        
+        mat-table [dataSource]="this.dataSource" class="mat-elevation-z0 w-100" style="border-radius: 10px;">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container  class="table-header" matColumnDef="Property" >
+              <th  style="color: white !important" mat-header-cell *matHeaderCellDef>Property</th>
+              <td  mat-cell *matCellDef="let element"> {{element.Property}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="Layout" class="table-header">
+                <th style="color: white !important" mat-header-cell *matHeaderCellDef> Layout </th>
+                <td mat-cell *matCellDef="let element"> {{element.Layout}} </td>
+              </ng-container>
+          
+            <!-- Weight Column -->
+           
+<!-- Weight Column -->
+<ng-container matColumnDef="Type" class="table-header">
+    <th style="color: white !important" mat-header-cell *matHeaderCellDef> Type </th>
+    <td mat-cell *matCellDef="let element"> {{element.Type}} </td>
+  </ng-container>
+  
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="PostedOn" class="table-header">
+    <th style="color: white !important" mat-header-cell *matHeaderCellDef> PostedOn </th>
+    <td mat-cell *matCellDef="let element"> {{element.PostedOn}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Price" class="table-header">
+    <th style="color: white !important" mat-header-cell *matHeaderCellDef> Price </th>
+    <td mat-cell *matCellDef="let element"> {{element.Price}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Agent" class="table-header">
+    <th style="color: white !important" mat-header-cell *matHeaderCellDef> Agent </th>
+    <td mat-cell *matCellDef="let element"> {{element.Agent}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Status" class="table-header">
+    <th style="color: white !important" mat-header-cell *matHeaderCellDef> Status </th>
+    <td mat-cell *matCellDef="let element"> {{element.Status}} </td>
+  </ng-container>
+  <ng-container matColumnDef="Actions" class="table-header">
+    <th style="color: white !important" mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let element"> {{element.Actions}} </td>
+  </ng-container>
+          
+          
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+          
+          
+    </mat-grid-tile>
+    <mat-grid-tile colspan="2"></mat-grid-tile>
+  </mat-grid-list>
+

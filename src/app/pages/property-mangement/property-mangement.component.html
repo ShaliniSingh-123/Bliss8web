@@ -1,0 +1,176 @@
+
+<div class="buy">
+    <div class="wrapper-overlay"></div>
+    <div class="content-overlay">
+        <h1> PROPERTY MANAGEMENT</h1>
+        <h4 routerLink="/home">Home /Property Management</h4>
+    </div>
+</div>
+
+<div class="text">
+    <p>
+        What’s more relaxing than professionals looking after your property! <br><br>One Earth Property Management is
+        one
+        mediatory party you need for managing your property. Our services offer experienced consultancy through
+        fundamental tech-driven market leading solutions to obtain the prime objective of maximizing returns and
+        providing complete peace of mind to our clients.
+    </p>
+
+
+
+    <!-- ----------------------------Key Service details----------------------------- -->
+    <h3>Key Services</h3>
+    <div class="row ">
+        <div class="col-sm-3">
+            <div class="wrapper-service-item property-handover">
+                <div class="overlay"></div>
+                <div class="content-service-item">
+                    <img src="../../../assets/images/deal.png" class="icon-service">
+                    <h2>Property <br>Handover</h2>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="wrapper-service-item listing">
+                <div class="overlay"></div>
+                <div class="content-service-item">
+                    <img src="../../../assets/images/Outline.png" class="icon-service">
+                    <h2>Listing &<br> Marketing</h2>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="wrapper-service-item lease-mangement">
+                <div class="overlay"></div>
+                <div class="content-service-item">
+                    <img src="../../../assets/images/mortgage.svg" class="icon-service">
+                    <h2>Lease<br>Management</h2>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="wrapper-service-item property-maintenance">
+                <div class="overlay"></div>
+                <div class="content-service-item">
+                    <img src="../../../assets/images/maintenance.png" class="icon-service">
+                    <h2>Property<br> Maintanance</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-------------------------------Personal details-------------------------------------->
+    <ng-container>
+        <h3 class="header-title heading-color page-title">Want to Manage your property with Bliss Estate ?
+        </h3>
+        <p class="header-instruction sub-heading-color">Personal Info</p>
+    </ng-container>
+
+    <ng-container>
+        <from [formGroup]="contactForm">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="" class="form-label uppercase form-head">FULL NAME</label>
+                    <input type="name" formControlName="name" class="form-control form-custom" name="name" id="name"
+                        placeholder="Enter Name" autocomplete="off">
+
+                </div>
+
+                <div class="col-sm-4">
+                    <!-- <mat-form-field class="example-full-width-off" appearance="standard" floatLabel="always"> -->
+                    <label for="" class="form-label uppercase form-head">Email</label>
+                    <input type="email" formControlName="email" class="form-control form-custom" name="email" id="email"
+                        placeholder="Enter Email" autocomplete="off">
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="" class="form-label uppercase form-head">PHONE NUMBER
+                    </label>
+                    <input type="phone" formControlName="phone" class="form-control form-custom" name="phone" id="phone"
+                        placeholder="Enter Phone" autocomplete="off">
+                </div>
+
+            </div>
+        </from>
+    </ng-container>
+    <br>
+
+
+    <!---------------------------Property Details---------------------------radio-button-------------------->
+    <ng-container>
+        <h3 class="header-title heading-color page-title" style="color: #6D7787; font-size: medium;">Property Details
+        </h3>
+        <p class="header-instruction sub-heading-color" style="color: #000000; font-size: 14px; font-weight: 800;">
+            PROPERTY FOR</p>
+        <div class="row space-below">
+            <div class="col-sm-9">
+                <div class="wrpper-radio-input">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="" value="buy" checked>
+                        <label class="form-check-label" for="">
+                            Rent
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="" value="sale">
+                        <label class="form-check-label" for="">
+                            Sale
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="" value="manage">
+                        <label class="form-check-label" for="">
+                            Manage
+                        </label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="" value="Validations">
+                        <label class="form-check-label" for="">
+                            Valuation
+                        </label>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </ng-container>
+    <br>
+    <!--------------------------------Project Type-------------------------------------------------------->
+    <ng-container>
+        <form [formGroup]="projectdetilForm">
+            <div class="row">
+                <div class="col-sm-4">
+                    <label for="" class="form-label form-head uppercase">PROJECT TYPE
+                    </label>
+                    <div class="wrap-select-input" >
+                        <img src="../../../assets/images/select-arrow.svg" alt="" type="projecttype" class="selet-arrow" formControlName="projecttype" placeholder="Any">
+                        <select name="" class="form-control form-control-genrl">
+                            <option value="">Any</option>
+                            <option value="">Rent</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="" class="form-label uppercase form-head">LOCATION
+                    </label>
+                    <input type="locations" formControlName="locations" class="form-control form-custom"
+                        name="locations" id="locations" autocomplete="off" placeholder="Enter Locations">
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="" class="form-label uppercase form-head">BEDROOMS
+                    </label>
+                    <input type="bedrooms" formControlName="bedrooms" class="form-control form-custom" name="bedrooms"
+                        id="bedrooms" autocomplete="off" placeholder="Enter No of Beds.">
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="buttonPostionStyle">
+                <button mat-flat-button class="publish_button" (click)="onSubmit()">Submit</button>
+            </div>
+        </form>
+    </ng-container>
+</div>

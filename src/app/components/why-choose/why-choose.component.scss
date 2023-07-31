@@ -1,0 +1,168 @@
+/* ======================= WHY CHOOSE US STYLSES START ======================= */
+.wrapper-wcu {
+    background: #F0F1F2;
+    padding: 60px 0;
+}
+
+.choose-details {
+    text-align: center;
+    font: normal normal medium 17px/22px avenirRegular;
+    letter-spacing: 0px;
+    color: #6D7787;
+    opacity: 1;
+}
+
+.wrap-item-wcu {
+    background: white;
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s ease-in-out;
+
+}
+
+.wrap-item-wcu:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 10, 0.2);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.wrap-item-wcu img {
+    width: 55px;
+}
+
+.wrap-item-wcu .title-wcu {
+    margin: 15px 0 10px;
+    text-align: center;
+    font: normal normal 900 14px/22px avenirRegular;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+.wrap-item-wcu .small-desc-wcu {
+    margin-bottom: 0;
+    text-align: center;
+    font: normal normal medium 7px/14px avenirRegular !important;
+    letter-spacing: 0px;
+    color: #6D7787;
+    opacity: 1;
+}
+
+/* ======================= WHY CHOOSE US STYLSES END ======================= */
+@media (max-width: 767px) {
+    .wrapper-search {
+        width: 100%;
+        position: absolute;
+        top: 20rem;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 100;
+        max-width: 1320px;
+        border-radius: 20px;
+    }
+    .achievements-reponsive{
+        display:none;
+        }
+        .achievements-reponsive-small{
+            display: flex;
+        }
+    .search-inner {
+        height: 100%;
+    }
+
+    .search-inner .nav-pills {
+        justify-content: center;
+    }
+
+    .search-inner .nav-pills .nav-item {
+        margin-top: -80px;
+    }
+
+    .search-inner .nav-pills .nav-item .nav-link.active {
+        background: white;
+        color: var(--secondry-color);
+        font-size: 16px;
+        padding: 8px 30px;
+        font-weight: bold;
+    }
+
+    .search-inner .nav-pills .nav-item .nav-link {
+        color: white;
+        font-size: 16px;
+        padding: 8px 30px;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .search-inner .nav-pills .nav-item .nav-link.active::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+        border-color: transparent;
+        border-width: 9px;
+        border-style: solid;
+        border-color: white transparent transparent;
+    }
+
+    .btn-search {
+        width: 100%;
+        height: 2.1rem !important;
+        font-size: 0.7rem;
+    }
+
+    .search-icon {
+        height: 0.6rem;
+        width: 0.6rem;
+    }
+    .d-flex {
+        flex-grow: 1
+      }
+    .wrap-item-wcu {
+        margin: 1rem;
+        height:100px !important;
+    }
+
+    .wrapper-wcu {
+        background: #F0F1F2;
+        padding: 20px 0;
+    }
+
+    .wrap-agent-item {
+        margin-top: 0.8rem;
+    }
+
+    .location-box-small {
+        width: 100%;
+    }
+
+    .location-box-big {
+        width: 100%;
+    }
+    .wrapper-filte-responsive {
+        margin-top: 1rem !important;
+        justify-content: center !important;
+        cursor: pointer;
+    }
+    .btn-primary {
+        font-size: 0.6rem;
+    }
+    .wrap-blog-item {
+        margin-top: 1rem;
+    }
+    .agent-responsive{
+        display: flex;
+    }
+    .agent-reponsive-large{
+        display: none   ;
+    }
+}
+
+

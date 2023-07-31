@@ -1,0 +1,133 @@
+<div class="wrapper-property-map-view">
+    <div class="row">
+       
+        <div class="col-sm-6">
+            <div class="wrapper-properties">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="title-properties">Properties</h1>
+                    </div>
+                    <div class="col-md-6" *ngFor="let prop of allProperties">
+                        <div class="wrap-property-item">
+                            <a href="/property-details" class="link-property">
+
+                                <div class="wrapper-thumb-featured-prop">
+                                    <img [src]="prop.photos && prop.photos.length >0 ? photoUrl+prop.photos[0]?.folderIndex+'/'+prop.photos[0]?.photoName : '../assets/images/noimage.png'"
+                                        class="thumb-featured-prop">
+                                    <div class="label-featured">Featured</div>
+                                </div>
+                                <div class="wrapper-content-featured-prop">
+                                    <h5 class="prop-title" title="{{prop.titleEn}}">{{prop.titleEn}}</h5>
+                                    <p class="prop-location">{{(prop.community +', '+ prop.city)}}</p>
+                                    <div class="prop-summary-points">
+                                        <div class="row text-center">
+                                            <div class="col-3">
+                                                <img title="image" src="../../assets/images/beds.svg" alt=""
+                                                    class="img-fluid icon-summary">
+                                                <p class="title-summary">{{prop.bedroom}}</p>
+                                            </div>
+                                            <div class="col-3">
+                                                <img src="../../assets/images/bath.svg" alt=""
+                                                    class="img-fluid icon-summary">
+                                                <p class="title-summary">{{prop.bathroom}}</p>
+                                            </div>
+                                            <div class="col-3">
+                                                <img src="assets/images/garage.svg" alt=""
+                                                    class="img-fluid icon-summary">
+                                                <p class="title-summary">{{prop.parking}}</p>
+                                            </div>
+                                            <div class="col-3">
+                                                <img src="../../assets/images/area.svg" alt=""
+                                                    class="img-fluid icon-summary">
+                                                <p class="title-summary">{{prop.size}} sqft</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <hr class="property-card-divider">
+                            <div class="wrapper-property-price">
+                                <div class="row">
+                                    <div class="col-10">
+                                        <h4 class="prop-price">AED {{prop.price}}</h4>
+                                    </div>
+                                    <div class="col-2 text-right">
+                                        <a href=""><img src="../../assets/images/wishlist.svg" alt=""
+                                                class="img-fluid img-wishlist"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!dataisloading" class="col-sm-6">
+            <div class="wrapper-google-map-properties">
+                <google-map #myGoogleMap height="600px" width="100%" [zoom]="zoom" [center]="center" [options]="options"
+                    (mapClick)="eventHandler($event,'mapClick')" (mapDblclick)="eventHandler($event,'mapDblclick')">
+
+                    <map-marker #markerElem="mapMarker" *ngFor="let marker of markers" [position]="marker.position"
+                        [label]="marker.label" [title]="marker.title"
+                        [options]="{icon:{url:'assets/images/maps-and-flags (11).svg'}}"
+                        (mapClick)="openInfo(markerElem, marker)" >
+                    </map-marker>
+
+                    <map-info-window  class="info">
+                        <div  class="row">
+                            <div class="col-3 map-card wraper-properties">
+                                <div class="wrap-property-item">
+                                    <a style="color: black" href="/property-details" class="link-property">
+                                        <div class="wrapper-thumb-featured-prop image">
+                                            <img [src]="allProperties[infoContent].photos && allProperties[infoContent].photos.length >0 ? photoUrl+allProperties[infoContent].photos[0]?.folderIndex+'/'+allProperties[infoContent].photos[0]?.photoName : '../assets/images/noimage.png'" alt="" class="thumb-featured-prop">
+                                        </div>
+                                    </a>
+                                    <div class="wrapper-content-featured-prop">
+                                        <h5 class="prop-title" title="{{allProperties[infoContent]?.titleEn}}">{{allProperties[infoContent]?.titleEn}}</h5>
+                                        <p class="prop-location">{{(allProperties[infoContent]?.community)+", "+(allProperties[infoContent]?.city)}}</p>
+                                        <div class="prop-summary-points">
+                                            <div class="row text-center">
+                                                <div class="col-3">
+                                                    <img src="assets/images/beds.svg" alt=""
+                                                        class="img-fluid icon-summary">
+                                                    <p class="title-summary">{{allProperties[infoContent]?.bedroom}} </p>
+                                                </div>
+                                                <div class="col-3">
+                                                    <img src="assets/images/bath.svg" alt=""
+                                                        class="img-fluid icon-summary">
+                                                    <p class="title-summary">{{allProperties[infoContent]?.bathroom}}</p>
+                                                </div>
+                                                <div class="col-3">
+                                                    <img src="assets/images/garage.svg" alt=""
+                                                        class="img-fluid icon-summary">
+                                                    <p class="title-summary">{{allProperties[infoContent]?.parking}}</p>
+                                                </div>
+                                                <div class="col-3">
+                                                    <img src="assets/images/area.svg" alt=""
+                                                        class="img-fluid icon-summary">
+                                                    <p class="title-summary">{{allProperties[infoContent]?.size}} Sqft</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr class="property-card-divider">
+                                    <div class="wrapper-property-price">
+                                        <div class="row">
+                                            <div class="col-10">
+                                                <h4 class="prop-price">AED {{allProperties[infoContent]?.price}}</h4>
+                                            </div>
+                                            <div class="col-2 text-right">
+                                                <a href=""><img src="assets/images/wishlist.svg" alt=""
+                                                        class="img-fluid img-wishlist"></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </map-info-window>
+                </google-map>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="row">
+    <!-- **********************************************recent posts started ************************************** -->
+
+  <div class="col-md-4 col-lg-10 blog-category">
+    <h3 style="text-align: center;">Recent Posts</h3>
+    <hr>
+    <div class="container" *ngFor="let recent of allProperties let i=index ;">
+      <div class="row"  *ngIf="i<4">
+        <div class="col-sm-5 post-img" >
+          <a [href]="'/find-blog?id='+recent.id"><img class="img" [src]="photoUrl+recent.imageFolder+'/'+recent.imageName " alt=""></a>
+        </div>
+        <div class="col-sm post-title">
+          <a [href]="'/find-blog?id='+recent.id" class="title" title="{{recent.title}}">{{recent.title}}</a>
+          <p class="recent-date"><img src="/assets/images/Icon-date (1).svg" alt=""> 
+            {{recent.createdOn | date: dateFormat}} </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+      <!-- **********************************************recent posts started ************************************** -->
+
+  <!-- **********************************************categories started************************************** -->
+  <div class="col-md-4 col-lg-10 blog-category" id="Categories" style="margin-top: 1rem;">
+    <div>
+      <h3>Categories</h3> 
+      <hr>
+
+    </div>
+
+    <div class="" *ngFor="let item of allcategories">
+      <p><a class="category-types"><img src="/assets/images/arrow-next.svg" alt=""> {{item}}</a></p>
+    </div>
+  </div>
+  <!-- **********************************************categories ended************************************** -->
+
+</div>

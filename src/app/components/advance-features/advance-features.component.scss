@@ -1,0 +1,26 @@
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+.multiselect-item-checkbox input[type=checkbox]+div:before {
+border: 2px solid   var(--primary-color) !important;
+}
+
+.multiselect-item-checkbox input[type=checkbox]:checked+div:before{
+    background: var(--primary-color) !important;
+}
+.multiselect-dropdown .dropdown-btn .selected-item{
+    background: var(--primary-color) !important;
+    border: var(--primary-color) !important;
+    // float: right !important;
+    margin: 2px !important;
+    box-shadow: none !important;
+
+}
+// .multiselect-dropdown .dropdown-list  .selected-item{
+//     display: none !important;
+// }
+.dropdown-list .filter-textbox{
+padding: 0px !important;
+}
+.dropdown-list li {
+    padding: 5px !important;
+}

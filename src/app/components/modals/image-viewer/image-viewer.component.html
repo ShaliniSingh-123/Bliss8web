@@ -1,0 +1,64 @@
+
+<div class="wrapper-features">
+
+  <div class="container ">
+
+      <div class="">
+        <div class="close-button"  (click)="closedialog()">
+             <img  [src]="'../../../../assets/images/close.svg'" >
+
+         </div>
+
+        <div class="swiper mySwiper">
+          <div class="swiper-button-next">
+            <img src="assets/images/arrow-next.svg" alt="">
+        </div>
+            <div class="swiper-wrapper">
+                <swiper  [slidesPerView]="1" [config]="config" [navigation]="{ nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'}">
+                    <ng-template *ngFor="let item of photoArray" swiperSlide>
+                      <img
+                      [src]="photoUrl+ item.folderIndex+'/'+item?.photoName"
+                      [alt]="'property'"
+                          class="main-image  ">
+                    </ng-template>
+
+
+                </swiper>
+            </div>
+
+            <div class="swiper-button-prev">
+                <img src="assets/images/arrow-prev.svg" alt="">
+            </div>
+        </div>
+
+          <div style="padding-top: 50px;" class="">
+
+
+          </div>
+
+      </div>
+  </div>
+</div>
+<!-- *************************************************** FEATURES SECTION END *************************************************** -->
+
+
+
+
+
+
+<!--
+<div class="main-container">
+  <div class="navigators-style">
+
+
+
+   <div class=" ">
+    <img
+    [src]="photoUrl+ photoArray[currentPic].folderIndex+'/'+photoArray[currentPic]?.photoName"
+    [alt]="'property'"
+        class="main-image  ">
+  </div>
+
+ </div>
+</div> -->

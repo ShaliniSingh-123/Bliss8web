@@ -1,0 +1,112 @@
+<div class=" dashboard">
+  <div class="container-fluid dashboard-page">
+
+    <div class="row ">
+      <h5 class="heading">Dashboard</h5>
+      <div class="col boxes listing-matcard">
+        <mat-card>
+          <p class="icons"><img src="/assets/images/total-listing.svg" alt=""></p>
+          <mat-card-content>
+            <mat-card-title>
+              <p class="dashboard-highlights">Total Listings</p>
+              <h4>75</h4>
+            </mat-card-title>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col boxes">
+        <mat-card>
+          <p class="icons"><img src="/assets/images/shield-check.svg" alt=""></p>
+          <mat-card-content>
+
+            <mat-card-title>
+              <p class="dashboard-highlights">Verify Listings</p>
+              <h4>55</h4>
+            </mat-card-title>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col boxes">
+        <mat-card>
+          <p class="icons"><img src="/assets/images/quality-score.svg" alt=""></p>
+
+          <mat-card-content>
+            <mat-card-title>
+              <p class="dashboard-highlights">Quality Score</p>
+              <h4>9.5 <span style="font-size:22px;color:#A1A5B7">/10</span></h4>
+            </mat-card-title>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col boxes">
+        <mat-card>
+          <p class="icons"><img src="/assets/images/total-leads.svg" alt=""></p>
+
+          <mat-card-content>
+            <mat-card-title>
+              <p class="dashboard-highlights">Total Leads</p>
+              <h4>1200</h4>
+            </mat-card-title>
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+    </div>
+    <div class="row table-and-list" style="margin-top: 1.3rem;">
+      <div class="col-md recent-leads-table">
+        <mat-card class="table-matcard">
+          <div class="row">
+            <div class="col-md-9 col-12 col-align-center">
+              <h5>Recent Leads</h5>
+            </div>
+            <div class="col-md-3 col-view-all col-align-center text-end">
+              <a href="" class="link-view-all-items">View All</a>
+            </div>
+          </div>
+          <mat-card-content>
+            <app-dashboard-table></app-dashboard-table>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-md recent-list-tabs">
+
+        <mat-card class="list-matcard">
+          <div class="row">
+            <div class="col-md-8 col-12 col-align-center">
+              <h5>Recent Listings</h5>
+            </div>
+            <div class="col-md-4 col-view-all col-align-center text-end">
+              <a href="" class="link-view-all-items">View All</a>
+            </div>
+          </div>
+          <mat-card-content>
+            <div class="mat-listing">
+              <div class="Listings " *ngFor="let item of list">
+                <div class="col-3">
+                  <a><img class="img" [src]="item.img" alt=""></a>
+                </div>
+
+                <div class="col-6 data">
+                  <p class="recent-title">{{item.title}}</p>
+                  <p class="recent-listing-location">{{item.location}}</p>
+                  <p class="Price">AED {{item.price}} </p>
+                  <button class="Active">Active</button>
+                </div>
+                <div class="col-3" class="recent-listing-time">
+                  <p> {{item.time}}</p>
+                </div>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,16 @@
+<button (click)="onclicked.emit()" class="button-style">
+  <div class="container-sub1" [ngSwitch]="iconname">
+    <div *ngSwitchCase="'call'">
+      <img src="../../../assets/images/telephone-call.svg" class="organzation">
+    </div>
+    <div *ngSwitchCase="'whatsapp'">
+      <img src="../../../assets/images/whatsapp.svg" class="organzation">
+    </div>
+    <div *ngSwitchCase="'email'">
+      <img src="../../../assets/images/email.svg" class="organzation">
+        </div>
+    <div *ngSwitchDefault> </div>
+    <div class="text-style" >{{buttonText}}</div>
+
+  </div>
+</button>

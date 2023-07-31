@@ -1,0 +1,69 @@
+<!-- *************************************************** PAGE TITLE SECTION START *************************************************** -->
+<section class="wrapper-page-title">
+    <h3 class="text-center">Get In Touch</h3>
+</section>
+<!-- *************************************************** PAGE TITLE SECTION END *************************************************** -->
+
+
+<!-- *************************************************** CONTACT FORM SECTION START *************************************************** -->
+<section class="wrapper-contact-form">
+    <div class="container">
+        <form [formGroup]="contactUsForm">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <!-- <label for="" class="form-label uppercase">First Name</label> -->
+                        <label for="" class="form-label uppercase"> Name</label>
+                        <input type="text" formControlName="fname" class="form-control" name="fname" id="fname" placeholder="Enter  Name" autocomplete="off">
+                        <div *ngIf="contactUsFormControls['fname'].touched && contactUsFormControls['fname'].invalid" class="alert alert-danger contact-alert">
+                            <div *ngIf="contactUsFormControls['fname'].errors && contactUsFormControls['fname'].errors['required']"> Name is required.</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="" class="form-label uppercase">Last Name</label>
+                        <input type="text" formControlName="lname" class="form-control" name="lname" id="lname" placeholder="Enter Last Name" autocomplete="off">
+                        <div *ngIf="contactUsFormControls['lname'].touched && contactUsFormControls['lname'].invalid" class="alert alert-danger contact-alert">
+                            <div *ngIf="contactUsFormControls['lname'].errors && contactUsFormControls['lname'].errors['required']">Last Name is required.</div>
+                        </div>
+                    </div>
+                </div> -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="" class="form-label uppercase">Email</label>
+                        <input type="email" formControlName="email" class="form-control" name="email" id="email" placeholder="Enter Email" autocomplete="off">
+                        <div *ngIf="contactUsFormControls['email'].invalid && contactUsFormControls['email'].touched">
+                            <small class="text-danger" *ngIf="contactUsFormControls['email'].errors && contactUsFormControls['email'].errors['required']">Email address is required</small>
+                            <small class="text-danger" *ngIf="contactUsFormControls['email'].errors && contactUsFormControls['email'].errors['email']">Email address is invalid</small>
+                          </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="" class="form-label uppercase">Phone</label>
+                        <input type="text" formControlName="phone" class="form-control" name="phone" id="phone" placeholder="Enter Phone" autocomplete="off">
+                        <small *ngIf="!contactUsFormControls['phone'].invalid" style="color: #666666;" >Eg : 05XXXXXXXXX</small>
+                        <div *ngIf="contactUsFormControls['phone'].touched && contactUsFormControls['phone'].invalid" class="alert alert-danger contact-alert">
+                            <div *ngIf="contactUsFormControls['phone'].errors && contactUsFormControls['phone'].errors['required']">Contact number is required.</div>
+                            <div *ngIf="contactUsFormControls['phone'].errors && ( contactUsFormControls['phone'].errors['pattern'] || contactUsFormControls['phone'].errors['maxlength'] || contactUsFormControls['phone'].errors['minlength']) ">Invalid contact number.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label for="" class="form-label uppercase">Message</label>
+                        <textarea class="form-control" formControlName="message" name="message" id="message" rows="4" placeholder="Write your Message" autocomplete="off"></textarea>
+                        <div *ngIf="contactUsFormControls['message'].touched && contactUsFormControls['message'].invalid" class="alert alert-danger contact-alert">
+                            <div *ngIf="contactUsFormControls['message'].errors && contactUsFormControls['message'].errors['required']">Message is required.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <button class="btn btn-primary btn-submit" [disabled]="contactUsForm.invalid || submitted" (click)="onSubmit(); submitted = true;">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<!-- *************************************************** CONTACT FORM SECTION END *************************************************** -->

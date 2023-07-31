@@ -1,0 +1,95 @@
+<div class="custom-d  wrapper-login">
+
+
+  <!-- <div class="row main-div "> -->
+     <div class="flex-container">
+      <div class="sss1">
+
+        <div class="wrapper-login-content">
+          <div class="text-style-1 ">WELCOME TO</div>
+          <div class="text-style-2">BLISS ESTATE</div>
+          <div class="text-style-3">Log in to get the moment updates on the thinsg that intrest you.</div>
+          <div class="text-style-4">  {{is_signUp? 'Sign Up':'Sign In'}}  </div>
+          <div class="wrapper-form">
+            <form class="form-style ">
+              <!-- email -->
+              <mat-form-field class="example-full-width" color="primary">
+                <!-- <mat-label>Email</mat-label> -->
+                <input color="primary" class="" type="email" matInput [formControl]="emailFormControl"
+                  [errorStateMatcher]="matcher" placeholder="Email">
+                <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+                <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                  Please enter a valid email address
+                </mat-error>
+                <mat-error *ngIf="emailFormControl.hasError('required')">
+                  Email is <strong>required</strong>
+                </mat-error>
+              </mat-form-field>
+              <!-- password -->
+              <mat-form-field class="example-full-width" color="primary">
+                <!-- <mat-label>Email</mat-label> -->
+                <input color="primary" class="" type="password" matInput placeholder="Password">
+                <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+
+              </mat-form-field>
+
+              <button class="button-sign" type="submit">
+                {{is_signUp? 'Sign Up':'Sign In'}}              </button>
+
+
+
+
+            </form>
+
+
+          </div>
+          <div class="text-center">
+            <div  *ngIf="!is_signUp">
+              <p>Not a member? <a (click)="signin_up()" class="redirect-Text">Sign Up</a></p>
+            </div>
+            <div  *ngIf="is_signUp">
+              <p>Already a member? <a (click)="signin_up()" class="redirect-Text">Sign In</a></p>
+            </div>
+              <div class="or">Or</div>
+
+            <p>CONTINUE WITH SOCIAL MEDIA</p>
+            <button (click)="googleLogin()" class="social-buttons">
+              <img src="..\assets\images\social\google-icon.svg" />
+            </button>
+            <button (click)="facebookLogin()" class="social-buttons">
+              <img src="..\assets\images\social\facebook-icon.svg" />
+            </button>
+          </div>
+
+
+
+
+
+        </div>
+      </div>
+      <div [style]="'background: url(' + s3BucketHost +'banner/4.png);' " class="sss2">
+        <div   class="close-button">
+          <img (click)="closedialog()" [src]="'../../../../assets/images/close.svg'" >
+        </div>
+
+        <!-- <div  class="wrapper-right-section"> -->
+          <!-- <img src="{{s3BucketHost}}banner/4.png" class="img-login-bg" alt="..."> -->
+          <img src="assets/images/logo.svg" alt="" class="img-login-logo-overlay">
+
+
+          <!-- <img [src]=" s3BucketHost +'banner/4.png' " alt="" class="img-login-logo-overlay"> -->
+
+
+
+        <!-- </div> -->
+        <!-- <div class="close-button" (click)="closedialog()">
+            <img [src]="'../../../../assets/images/close.svg'">
+
+          </div> -->
+
+
+      </div>
+    </div>
+
+  <!-- </div> -->
+</div>

@@ -1,0 +1,65 @@
+<div class="wrapper-featured-properties">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12  ">
+                <div class="swiper-slide" data-aos="">
+                    <div [style.height]="cardEmpty ? '100%' :  null" class="swiper-slide-inner bg-white">
+                        <div class="cardempty-text"> {{cardEmpty? "View All properties":''}}</div>
+                        <a [style.visibility]="cardEmpty ? 'hidden' :  null" [href]="link" class="link-property">
+                            <div class="wrapper-thumb-featured-prop">
+                                <img [src]="image == null ?  '../assets/images/noimage.png'  : photoUrl+this.image?.folderIndex+'/'+this.image?.photoName"
+                                    alt="" class="thumb-featured-prop">
+                                <div class="label-featured">Featured</div>
+                            </div>
+                            <div class="wrapper-content-featured-prop">
+                                <h5 class="prop-title-card">{{title}}</h5>
+                                <p class="prop-location">{{location}}</p>
+
+
+                                <div class=" row justify-content-center" style="text-align: center;">
+                                    <div class="col-3">
+                                        <img src="assets/images/beds.svg" alt="" class="img-fluid icon-summary-card">
+                                        <p class="title-summary">{{nBeds != 0 ? nBeds : 'Studio'}}</p>
+                                    </div>
+                                    <div class="col-3"> <img src="assets/images/bath.svg" alt=""
+                                            class="img-fluid icon-summary-card">
+                                        <p class="title-summary">{{nBaths }}</p>
+                                    </div>
+                                    <div class="col-3 "><img src="assets/images/garage.svg" alt=""
+                                            class="img-fluid icon-summary-card">
+                                        <p class="title-summary">{{nGarage != null ? nGarage :'No'}}</p>
+                                    </div>
+                                    <div class="col-3 text-align-center ">
+                                        <img src="assets/images/area.svg" alt="" class="img-fluid icon-summary-card">
+                                        <p class="title-summary"> {{nSqft + ' sqft'}}</p>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </a>
+                        <hr [style.visibility]="cardEmpty ? 'hidden' :  null" class="property-card-divider">
+                        <div [style.visibility]="cardEmpty ? 'hidden' :  null" class="wrapper-property-prices">
+                            <div class="prop-title-card">
+                                <strong>{{'AED '+(price | number)}}</strong>
+                            </div>
+                            <div>
+                                <div class="img-wishlist" (click)="addToWishlist(id)" id="{{id}}"
+                                    *ngIf=" !(items.indexOf(id) > -1)  ; else prompt">
+                                    <img src="assets/images/wishlist.svg">
+                                </div>
+
+                                <ng-template class="img-wishlist" #prompt>
+                                    <img src="assets/images/heart-fill.svg" (click)="removeFromWishlist(id)">
+                                </ng-template>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+            </div>
+        </div>

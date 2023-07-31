@@ -1,0 +1,248 @@
+.buy {
+    background: url("/assets/images/rentvsbuy-background.png"), #081F2166;
+    width: 100%;
+    text-align: center;
+    color: #FFFFFF;
+    background-size: cover;
+    height: 300px;
+    position: relative;
+}
+
+.ngx-slider .ngx-slider-pointer {
+    background-color: white !important;
+    //    cursor: pointer;
+    width: 25px !important;
+    height: 25px !important;
+    top: -10px !important;
+    z-index: 6;
+    border: 2px solid var(--primary-color);
+
+}
+
+span.ngx-slider-span.ngx-slider-bar-wrapper.ngx-slider-selection-bar {
+    visibility: visible !important;
+}
+
+.mat-form-field-label-wrapper {
+    border-bottom: 0px;
+}
+
+.ng-tns-c90-1 {
+    border-bottom: 10px red;
+}
+
+.ngx-slider-pointer:after {
+    display: none;
+}
+
+.ngx-slider-selection {
+    background: var(--primary-color);
+}
+
+.ngx-slider-active {
+    outline-color: var(--primary-color) !important;
+}
+
+.ngx-slider-selection {
+    background: var(--primary-color) !important;
+}
+
+
+.ngx-slider-bar {
+    height: 4px !important;
+}
+
+.wrapper-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 300px;
+    background: rgba($color: #000000, $alpha: 0.3);
+    z-index: 9;
+    width: 100%;
+}
+
+.custom-slider {
+    margin-top: 3%;
+    margin-bottom: 3%;
+}
+
+
+
+.content-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    z-index: 99;
+}
+
+.card {
+    display: flex;
+    /* text-align: center; */
+    /* background-size: cover; */
+    height: 100%;
+    color: rgb(32, 20, 20);
+    padding-top: 4rem;
+    margin-bottom: 1.5rem;
+    /* object-fit: cover; */
+    opacity: 1;
+    border-radius: 20px 20px 20px 20px;
+
+}
+
+::placeholder {
+    color: #6d7787;
+    text-align: right;
+}
+
+.form-control {
+    border: none;
+    border-bottom: 1px solid black;
+    width: 96%;
+    border-radius: 0%;
+    padding: 0%;
+}
+
+.cost {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+
+}
+
+.cost label {
+    padding-top: 0.8rem;
+    padding-bottom: 0.5rem;
+    font-weight: bolder;
+}
+
+.list {
+    text-align: left;
+}
+
+.values {
+    text-align: right;
+}
+
+td,
+.rent-looking p {
+    line-height: 30px;
+    color: #6D7787;
+}
+
+.rent-looking {
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 3rem;
+    padding-left: 20px;
+}
+
+h6 {
+    font-weight: 800;
+}
+
+.cost p {
+    color: #6D7787;
+    padding-right: 7px;
+}
+
+.graph,
+.tabs {
+    margin-top: 3rem;
+    box-shadow: 0px 0px 20px #00000026;
+    border-radius: 15px;
+    text-align: left;
+    padding-top: 1.5rem;
+
+}
+
+.tabs {
+    margin-bottom: 10rem;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.graph h2 {padding-left: 12px;}
+
+.graph h2,
+.cost h3,
+h5 {
+    font-weight: bolder;
+}
+
+.amount {
+    display: flex;
+    background-color: #F0F1F2;
+}
+
+.nav-tabs {
+    --bs-nav-tabs-link-active-bg: #fff;
+    --bs-nav-tabs-link-active-border-color: bold #00B8C6;
+    // --bs-nav-tabs-link-active-text-color:black;
+}
+
+.nav-tabs .nav-link {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    color: #000000;
+    font-weight: 600;
+    border-bottom-style: solid;
+
+}
+
+.nav-link {
+    color: #A6A9AF(--bs-link-color);
+}
+
+.nav {
+    --bs-nav-link-padding-x: 4.75rem;
+}
+
+@media screen and (max-width: 767px) and (max-width: 969px) and (max-width: 567px) and (max-width: 1200px) and (max-width: 1400px) {}
+
+@media all and (max-width:992px) {
+    .calculate {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .graph,
+    .tabs,
+    .cost {
+        width: 100%;
+    }
+
+    .graph {
+        margin-left: 10px;
+        justify-content: center;
+    }
+
+    .nav {
+        --bs-nav-link-padding-x: 6rem;
+    }
+
+    canvas {
+        padding-bottom: 2rem;
+        padding-right: 3rem;
+        height: 500px;
+        display: block;
+        box-sizing: border-box;
+        width: 400px;
+    }
+
+}
+
+
+
+@media (min-width:993px) and (max-width:1200px) {
+    .nav {
+        --bs-nav-link-padding-x: 3.5rem;
+    }
+
+}

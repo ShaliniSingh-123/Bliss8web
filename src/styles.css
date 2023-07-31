@@ -1,0 +1,64 @@
+/* You can add global styles to this file, and also import other style files
+@import "~bootstrap/dist/css/bootstrap.css"*/
+:root {
+    --primary-color: #00B8C6;
+    --secondry-color: #0A213C;
+}
+.section-title{
+    font-size: 24px;
+    color: var(--secondry-color);
+    font-weight: 900;
+    letter-spacing: 0;
+}
+.form-control-genrl{
+    border: 0 !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid lightgray !important;
+    padding: 0;
+    margin-bottom: 20px;
+}
+.wrap-select-input{
+    position: relative;
+}
+.selet-arrow{
+    position: absolute;
+    right: 2px;
+    top: 20px;
+}
+.form-control-genrl:focus{
+    box-shadow: 0 0 0 0 !important;
+    outline: 0 !important;
+    border-color: var(--primary-color) !important;
+    border-width: 2px !important;
+}
+
+/***********************Material Pop up custom style*******************************/
+.custom-dialog-image-view .mat-dialog-container {
+  background-color: transparent;
+  box-shadow: none;
+  overflow: hidden;
+ }
+ .backdropBackground-image-view {
+  background-color: #00000030;
+  backdrop-filter: blur(4px);
+}
+.custom-dialog-sign-up .mat-dialog-container {
+  /* background-color: transparent; */
+  box-shadow: none;
+  border-radius: 20px;
+  padding: 0px;
+  max-height: 50%;
+  overflow-x: hidden;
+
+  /* overflow: hidden; */
+  /* overflow: hidden; */
+
+ }
+
+
+
+/* --------------------------end-------------------------- */
+.cursor{
+    cursor: pointer;
+
+}

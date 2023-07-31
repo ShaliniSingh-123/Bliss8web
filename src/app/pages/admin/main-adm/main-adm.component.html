@@ -1,0 +1,42 @@
+<div class="sidebar-container">
+  <mat-sidenav-container class="sidebar-sidenav-container">
+    <mat-sidenav #snav mode="side" opened="true">
+      <mat-nav-list class="side-navbar">
+        <ng-container *ngFor="let menu of menuList ; index as i;">
+          <ng-container [ngTemplateOutlet]="menu.children ?  childMenu : parentMenu"
+            [ngTemplateOutletContext]="{menu:menu}">
+          </ng-container>
+        </ng-container>
+      </mat-nav-list>
+
+      <ng-template #parentMenu let-menu="menu">
+        <mat-list-item [routerLink]="menu.routerLink" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+                true}">
+           {{menu.text}}
+        </mat-list-item>
+      </ng-template>
+
+      <ng-template #childMenu let-menu="menu">
+        <mat-expansion-panel [class.mat-elevation-z0]="true">
+          <mat-expansion-panel-header>
+            {{menu.text}}
+          </mat-expansion-panel-header>
+          <mat-nav-list>
+            <mat-list-item [routerLink]="submenu.routerLink" *ngFor="let submenu of menu.children"
+              routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+                        true}" (click)="onListTabsClick(submenu,menu)">
+              {{submenu.text}}
+            </mat-list-item>
+          </mat-nav-list>
+        </mat-expansion-panel>
+      </ng-template>
+    </mat-sidenav>
+    <mat-sidenav-content class="content-style" style="margin-left:210px">
+      <app-tabs></app-tabs>
+      <div class="main-content">
+        
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

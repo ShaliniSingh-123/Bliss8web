@@ -1,0 +1,28 @@
+
+
+<div class="wrapper-lead" style="padding-left:10px">
+<div class="lead-tab">
+    <p>adm-lead-managment works!</p>
+    <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li ngbNavItem>
+          <a ngbNavLink>Buy</a>
+          <ng-template ngbNavContent>Buy content</ng-template>
+        </li>
+        <li ngbNavItem>
+          <a ngbNavLink>Rent</a>
+          <ng-template ngbNavContent>Rent content</ng-template>
+        </li>
+
+        <li ngbNavItem>
+            <a ngbNavLink>Manage</a>
+            <ng-template ngbNavContent>Manage content</ng-template>
+          </li>
+          <li ngbNavItem>
+            <a ngbNavLink>Sell</a>
+            <ng-template ngbNavContent>Sell content</ng-template>
+          </li>
+      </ul>
+      <div [ngbNavOutlet]="nav"></div>
+
+</div>
+</div>

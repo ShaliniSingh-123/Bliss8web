@@ -1,0 +1,69 @@
+<div class="blog-news">
+  <div class="wrapper-overlay">
+    <div class="content-overlay">
+      <h3> BLOG NEWS</h3>
+      <h6>Home / News</h6>
+    </div>
+  </div>
+</div>
+<div class="blog-news-features">
+  <div class="row">
+    <div class=" col-md-9 blog-news-featured-properties">
+      <div class="container-fluid">
+        <!-- **********************************************blogs started ************************************** -->
+
+        <div class="row">
+          <div class="col-md-6 col-lg-4 blog-properties "
+            *ngFor="let prop of allProperties  | paginate: { itemsPerPage: 6, currentPage: currentpage}">
+            <div class="swiper-slide" data-aos="">
+              <a  [href]="'/find-blog?id='+prop.id" style="text-decoration: none;">
+              <div class="swiper-slide-inner bg-white">
+                  
+                <div class="wrapper-thumb-featured-prop">
+                  <img [src]="photoUrl+prop.imageFolder+'/'+prop.imageName " alt="" class="thumb-featured-prop">
+
+                </div>
+                <div class="blog-content-featured-prop">
+                  <div>
+                    <p class="date-advice">{{prop.createdOn | date: dateFormat}}</p>
+                    <h6>{{prop.title}}</h6>
+                  </div>
+
+                  <div class="advice">
+                    <p class="date-advice"><span>{{prop.category}}</span></p>
+                  </div>
+                  <div>
+                    <p class="message">{{prop.sortDescription}}</p>
+                  </div>
+                  <div>
+                    <a [href]="'/find-blog?id='+prop.id" class="link-continue-reading">Continue Reading <img
+                        src="/assets/images/arrow-theme-color.svg" alt=""></a>
+                  </div>
+                </div>
+
+              </div>
+            </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper-property-pagination text-center mt-4 pagination-style">
+        <pagination-controls (pageChange)="handlePageChange($event)" previousLabel="" nextLabel=""
+          class="my-pagination"></pagination-controls>
+      </div>
+      <div>
+
+      </div>
+    </div>
+    <!-- **********************************************blogs  ended ************************************** -->
+    <!-- **********************************************recent-posts and categories started ************************************** -->
+
+    <div class="col-md-3">
+      <app-blog-categories>
+      </app-blog-categories>
+
+
+    </div>
+  </div>
+
+</div>

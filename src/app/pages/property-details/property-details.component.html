@@ -1,0 +1,591 @@
+<div class="wrapper-property-details">
+    <div class="container-custom">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="wrapper-breadcrumbs">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Properties</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Property Detail</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="propertydetail">
+            <div class="col-lg-9">
+                <div class="wrapper-property-summary">
+                    <h5 class="prop-title"> {{propertydetail.titleEn}}</h5>
+
+                    <p class="prop-location">{{propertydetail.community}}, {{propertydetail.city}}</p>
+                    <div class="prop-summary-points">
+                        <div class="row">
+                            <div *ngIf="propertydetail?.bedroom" class="col-3 d-flex flex-column  align-items-center">
+                                <img alt="" class="img-fluid icon-summary" src="../../assets/images/beds.svg">
+                                <p class="title-summary">{{propertydetail?.bedroom}}</p>
+                            </div>
+                            <div *ngIf="propertydetail?.bathroom" class="col-3 d-flex flex-column  align-items-center">
+                                <img alt="" class="img-fluid icon-summary" src="../../assets/images/bath.svg">
+                                <p class="title-summary">{{propertydetail?.bathroom}}</p>
+                            </div>
+                            <div *ngIf="propertydetail?.parking" class="col-3 d-flex flex-column  align-items-center">
+                                <img alt="" class="img-fluid icon-summary" src="../../assets/images/garage.svg">
+                                <p class="title-summary">{{propertydetail?.parking}}</p>
+                            </div>
+                            <div *ngIf="propertydetail?.size" class="col-3 d-flex flex-column  align-items-center"><img
+                                    alt="" class="img-fluid icon-summary" src="../../assets/images/area.svg">
+                                <p class="title-summary">{{propertydetail?.size + " sqft"}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="wrapper-share-icons">
+                   
+                        <div class="wrap-share-item">
+                            <div class="wrap-share-icon">
+                                <div >
+                                    <div   (click)="addToWishlist(propertydetail.id)" id="{{propertydetail.id}}"  *ngIf=" !(items.indexOf(propertydetail.id) > -1)  ; else prompt">
+                                        <img class="img-fluid icon-share-genrl cursor" src="assets/images/wishlist.svg">
+                                    </div>
+    
+                                    <ng-template  #prompt>
+                                        <img class="img-fluid icon-share-genrl cursor" src="assets/images/heart-fill.svg" (click)="removeFromWishlist(propertydetail.id)">
+                                    </ng-template>
+    
+                                </div>
+                                   
+                            </div>
+
+                            <p class="share-item-title">
+                                Wishlist
+                            </p>
+                        </div>
+
+                   
+                    <!--a href="" class="link-wrap-share-item">
+
+                        <div class="wrap-share-item">
+                            <div class="wrap-share-icon">
+                                <img src="../../../assets/images/icon-share.svg" alt=""
+                                    class="img-fluid icon-share-genrl">
+                            </div>
+
+                            <p class="share-item-title">
+                                Share
+                            </p>
+                        </div>
+
+                    </a-->
+         
+                    <a class="link-wrap-share-item cursor" (click)="printPage()">
+
+                        <div class="wrap-share-item">
+                            <div class="wrap-share-icon">
+                                <img src="../../../assets/images/icon-print.svg" alt=""
+                                    class="img-fluid icon-share-genrl">
+                            </div>
+
+                            <p class="share-item-title">
+                                Print
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <h2 class="property-price">AED {{propertydetail.price | number}}
+
+                </h2>
+            </div>
+        </div>
+        <div *ngIf="!loading" class="wrapper-property-image-gallery">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="wrap-property-main-img">
+                        <img (click)="openImage(0)"
+                            [src]="photoUrl+propertydetail?.photos[0].folderIndex+'/'+propertydetail?.photos[0]?.photoName"
+                            [alt]="'property'" class="img-fluid img-property-main">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-gallery-grid">
+                    <div class="wrapper-image-grid">
+                        <ng-container *ngFor="let photo of propertydetail.photos  let i=index ;">
+                            <div *ngIf="i<8" class="wrap-item">
+                                <img src="../../../assets/images/steven.png" alt=""
+                                    [src]="photoUrl+photo?.folderIndex+'/'+photo?.photoName" (click)="openImage(i)"
+                                    class="img-fluid img-grid-item">
+                            </div>
+                        </ng-container>
+
+                        <!-- <div class="wrap-item">
+                            <img src="../../../assets/images/steven.png" alt=""
+                                class="img-fluid img-grid-item">
+                        </div>
+                        <div class="wrap-item">
+                            <img src="../../../assets/images/Mirrior.png" alt=""
+                                class="img-fluid img-grid-item">
+                        </div>
+                        <div class="wrap-item">
+                            <img src="../../../assets/images/steps.png" alt=""
+                                class="img-fluid img-grid-item">
+                        </div>
+                        <div class="wrap-item">
+                            <img src="../../../assets/images/pool.png" alt=""
+                                class="img-fluid img-grid-item">
+                        </div>
+                        <div class="wrap-item">
+                            <img src="../../../assets/images/cot.png" alt=""
+                                class="img-fluid img-grid-item">
+                        </div>
+                        <div class="wrap-item">
+                            <img src="../../../assets/images/pool.png" alt=""
+                                class="img-fluid img-grid-item">
+                        </div>
+                        <div class="wrap-item">
+                            <img src="../../../assets/images/property-detail-main.png" alt=""
+                                class="img-fluid img-grid-item">
+                        </div>
+                        <div class="wrap-item">
+                            <img src="../../../assets/images/room.png" alt=""
+                                class="img-fluid img-grid-item">
+                        </div> -->
+                        <div (click)="openImage(0)" class="wrap-item item-grid-last">
+                            <img src="../../../assets/images/steven.png" alt="" class="img-fluid img-grid-item">
+                            <a class="wrap-more-items">
+                                {{propertydetail.photos.length +"+"}}
+                            </a>
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- PROPERTY DESCRIPTION START -->
+                <div class="accordion wrapper-accordion-custom">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingDescription">
+                            <button class="accordion-button accordion-button-custom" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#description" aria-expanded="true"
+                                aria-controls="description">
+                                Description
+                            </button>
+                        </h2>
+                        <div id="description" class="accordion-collapse collapse show"
+                            aria-labelledby="headingDescription">
+                            <div [ngClass]="{'limitTextHeight': isReadMore}" class="accordian-content body-light">
+                                {{propertydetail?.descriptionEn}}</div>
+                            <a class="read-more-style" (click)="showText()"><u> {{ isReadMore ? '... Read More': 'Read
+                                    Less' }}</u></a>
+
+
+                        </div>
+                    </div>
+                </div>
+                <!-- PROPERTY DESCRIPTION END -->
+
+                <!-- PROPERTY DETAILS AND FEATURES START -->
+                <div class="accordion wrapper-accordion-custom">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingDetailsAndFeatures">
+                            <button class="accordion-button accordion-button-custom" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#detailsAndFeatures" aria-expanded="true"
+                                aria-controls="detailsAndFeatures">
+                                Detail & Features
+                            </button>
+                        </h2>
+                        <div id="detailsAndFeatures" class="accordion-collapse collapse show"
+                            aria-labelledby="headingDetailsAndFeatures">
+                            <div class="accordian-content body-light">
+                                <div class="wrapper-property-features">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <span class="feature-title">
+
+                                                <strong>
+                                                    Bedrooms:
+                                                </strong>
+                                            </span>
+                                            {{propertydetail?.bedroom}}
+                                            <!-- <span class="feature-value">3</span> -->
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span class="feature-title">
+                                                <strong>
+                                                    Bathrooms:
+                                                </strong>
+                                            </span>
+                                            {{propertydetail?.bathroom}}
+                                            <!-- <span class="feature-value">2</span> -->
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span class="feature-title">
+                                                <strong>
+                                                    Area:
+                                                </strong>
+                                            </span>
+                                            <span class="feature-value">{{propertydetail?.size + ' sqft'}}</span>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span class="feature-title">
+                                                <strong>
+                                                    Swimming Pool:
+                                                </strong>
+                                            </span>
+                                            <span class="feature-value">Yes</span>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span class="feature-title">
+                                                <strong>
+                                                    Kitchen Features:
+                                                </strong>
+                                            </span>
+                                            <span class="feature-value">Kitchen Facilities</span>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span class="feature-title">
+                                                <strong>
+                                                    Parking:
+                                                </strong>
+                                            </span>
+                                            {{propertydetail?.parking ? propertydetail?.parking : 'No'}}
+                                            <!-- <span class="feature-value">1</span> -->
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span class="feature-title">
+                                                <strong>
+                                                    Property Type:
+                                                </strong>
+                                            </span>
+                                            <span class="feature-value">Appartment</span>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <span class="feature-title">
+                                                <strong>
+                                                    Cooling:
+                                                </strong>
+                                            </span>
+                                            <span class="feature-value">Central AC</span>
+                                        </div>
+
+                                        <div class="col-sm-4">
+                                            <span class="feature-title">
+                                                <strong>
+                                                    Elevator:
+                                                </strong>
+                                            </span>
+                                            <span class="feature-value">Yes</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- PROPERTY DETAILS AND FEATURES END -->
+
+                <!-- PROPERTY AMENITIES START -->
+                <div class="accordion wrapper-accordion-custom">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingAmenities">
+                            <button class="accordion-button accordion-button-custom" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#amenities" aria-expanded="true"
+                                aria-controls="amenities">
+                                Amenities
+                            </button>
+                        </h2>
+                        <div id="amenities" class="accordion-collapse collapse show" aria-labelledby="headingAmenities">
+                            <div class="accordian-content body-light">
+                                <div class="wrapper-amenities">
+                                    <div class="row alignt-items-center">
+                                        <ng-container *ngFor="let item of propertydetail?.amenities">
+                                            <div class="col-md-3 col-sm-6 col-6">
+                                                <div class="wrap-amenity-item">
+                                                    <img src="../../../assets/images/amenities-check.svg" alt=""
+                                                        class="img-fluid img-check-amenities">
+                                                    <span class="title-amenity">{{item.amenityName}}</span>
+                                                </div>
+
+                                            </div>
+
+                                        </ng-container>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- PROPERTY AMENITIES END -->
+                <!-- PROPERTY LOCATION MAP START -->
+                <div class="accordion wrapper-accordion-custom">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingLocation">
+                            <button class="accordion-button accordion-button-custom" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#property-location" aria-expanded="true"
+                                aria-controls="property-location">
+                                Location <span class="map-loc">{{propertydetail?.community}},
+                                    {{propertydetail?.city}}</span>
+                            </button>
+                        </h2>
+                        <div id="property-location" class="accordion-collapse collapse show"
+                            aria-labelledby="headingLocation">
+                            <div class="accordian-content body-light">
+                                <iframe [src]="mapURL | safe " class="google-map-property-location" width="100%"
+                                    height="350" style="border:0;" allowfullscreen="" loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- PROPERTY LOCATION MAP END -->
+
+                <!-- PROPERTY FLOOR PLANS START -->
+                <div class="accordion wrapper-accordion-custom">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFloorPlans">
+                            <button class="accordion-button accordion-button-custom" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#property-floor-plans" aria-expanded="true"
+                                aria-controls="property-floor-plans">
+                                Floor Plans
+                            </button>
+                        </h2>
+                        <div id="property-floor-plans" class="accordion-collapse collapse show"
+                            aria-labelledby="headingFloorPlans">
+                            <div class="accordian-content body-light">
+                                <div class="wrapper-floor-plans">
+                                    <div class="wrap-floor-plan-item">
+                                        <img src="../../../assets/images/file.svg" alt="" class="img-fluid img-file">
+                                        <span class="title-amenity">floor 1.pdf</span>
+                                        <a href="" class="link-download-file">
+                                            <button class="file-button" mat-raised-button color="#FFFFFF">
+                                                <mat-icon class="view-icon">visibility</mat-icon>
+                                            </button>
+                                            
+                                            <button class="file-button" mat-raised-button color="#FFFFFF">
+                                                <mat-icon class="view-icon">save_alt</mat-icon>
+
+                                            </button>
+                                        </a>
+                                    </div>
+                                    <div class="wrap-floor-plan-item">
+                                        <img src="../../../assets/images/file.svg" alt="" class="img-fluid img-file">
+                                        <span class="title-amenity">floor 2.pdf</span>
+                                        <a href="" class="link-download-file">
+                                            <button class="file-button" mat-raised-button color="#FFFFFF">
+                                                <mat-icon class="view-icon">visibility</mat-icon>
+                                            </button>
+                                        
+                                            <button class="file-button" mat-raised-button color="#FFFFFF">
+                                                <mat-icon class="view-icon">save_alt</mat-icon>
+                                             </button>
+                                        </a>
+                                            
+                                    </div>
+                                    <div class="wrap-floor-plan-item">
+                                        <img src="../../../assets/images/file.svg" alt="" class="img-fluid img-file">
+                                        <span class="title-amenity">floor 3.pdf</span>
+                                        <a href="" class="link-download-file">
+                                            <button class="file-button" mat-raised-button color="#FFFFFF">
+                                                <mat-icon class="view-icon">visibility</mat-icon>
+                                            </button>
+                                            
+                                            <button class="file-button" mat-raised-button color="#FFFFFF">
+                                                <mat-icon class="view-icon">save_alt</mat-icon>
+                                             </button>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- PROPERTY FLOOR PLANS END -->
+
+                <!-- PROPERTY VIDEO START -->
+                <div class="accordion wrapper-accordion-custom">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingVideo">
+                            <button class="accordion-button accordion-button-custom" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#property-video" aria-expanded="true"
+                                aria-controls="property-video">
+                                Video
+                            </button>
+                        </h2>
+                        <div id="property-video" class="accordion-collapse collapse show"
+                            aria-labelledby="headingVideo">
+                            <div class="accordian-content body-light">
+                                <div class="wrapper-property-video">
+                                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/eR8K-lCYVNk"
+                                        title="Bliss Real estate" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+
+                                    <!-- <img src="../../../assets/images/prop-video.png" alt=""
+                                        class="property-video-thumb">
+                                    <img (click)="open(content)" src="../../../assets/images/play.svg" alt=""
+                                        class="property-video-icon"> -->
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- PROPERTY VIDEO END -->
+            </div>
+            <div class="col-lg-4">
+                <div class="wrapper-client-lead-form">
+                    <div class="wrap-agent-info">
+                        <div class="wrap-agent-photo">
+                            <img [src]="agentPhotoUrl+propertydetail?.agent.photo" alt="" class="img-fluid img-agent">
+                        </div>
+                        <div class="wrap-agent-contact">
+                            <h2 class="agent-title">{{propertydetail?.agent.name}}</h2>
+                            <p class="agent-mobile">{{propertydetail?.agent.phone}}</p>
+                            <p class="agent-email">{{propertydetail?.agent.email}}
+                            </p>
+                        </div>
+
+
+                    </div>
+                    <div class="wrapper-form-data">
+                        <form [formGroup]="contactAgentForm">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input required type="text" formControlName="fname" name="fname"
+                                            placeholder="First Name" class="form-control form-control-genrl">
+                                          <mat-error class="mat-error-color"
+                                        *ngIf="!contactAgentForm.controls['fname'].valid && contactAgentForm.controls['fname'].dirty">
+                                        {{contactAgentForm.controls['fname'].value =="" ?"First Name is required"
+                                        :"First Name is Invalid"}}</mat-error>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input required type="text" formControlName="lname" name="lname"
+                                            placeholder="Last Name" class="form-control form-control-genrl" >
+                                        <mat-error class="mat-error-color"
+                                        *ngIf="!contactAgentForm.controls['lname'].valid && contactAgentForm.controls['lname'].dirty">
+                                        {{contactAgentForm.controls['lname'].value =="" ?"Last Name is required" :"Last
+                                        Name is Invalid"}}</mat-error>
+                                     </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div required class="form-group">
+                                        <input type="email" formControlName="email" name="email" placeholder="Email"
+                                            class="form-control form-control-genrl">
+                                        <mat-error class="mat-error-color"
+                                            *ngIf="!contactAgentForm.controls['email'].valid && contactAgentForm.controls['email'].dirty">
+                                            {{contactAgentForm.controls['email'].value =="" ?"Email is required" :"Email
+                                            is Invalid"}}</mat-error>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-12">
+                                <div required class="form-group">
+                                    <input type="text" formControlName="phone" name="phone" placeholder="Phone"
+                                        class="form-control form-control-genrl">
+                                    <mat-error class="mat-error-color"
+                                        *ngIf="!contactAgentForm.controls['phone'].valid && contactAgentForm.controls['phone'].dirty">
+                                        {{contactAgentForm.controls['phone'].value =="" ?"Phone Number is required" :"Phone Number is
+                                        Invalid"}}</mat-error>
+                                </div>
+                            </div>
+
+                                <div required class="col-md-12">
+                                    <div class="form-group">
+                                        <textarea name="message" formControlName="message" rows="4"
+                                            placeholder="Message"
+                                            class="form-control form-control-genrl"></textarea>
+                                    
+                                    <mat-error class="mat-error-color"
+                                        *ngIf="!contactAgentForm.controls['message'].valid && contactAgentForm.controls['message'].dirty">
+                                        {{contactAgentForm.controls['message'].value =="" ?"Message is required"
+                                        :"Message is Invalid"}}</mat-error>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group form-group-checkbox">
+                                        <div class="wrap-input-check">
+                                            <input formControlName="agreement" type="checkbox" [value]="false"
+                                                class="form-check-input" id="exampleCheck1">
+                                        </div>
+                                        <label class="form-check-label">I have read and accepted the <a href="">Privacy
+                                                Policy</a> & <a href="">Terms of Conditions</a></label>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <button [disabled]=" contactAgentForm.invalid" (click)="contactProperty()"
+                                        class="btn btn-primary btn-submit btn-contact-property uppercase btn-full-width-genrl">Contact
+                                        Property</button>
+                                    <a [href]="'https://wa.me/7981912982?text=Hey%20I%20am%20interested%20in%20this%20property%20%20%20'+'http://localhost:4200/property-details?propertyid=' + propertydetail?.id"
+                                        class="btn btn-primary btn-whatsapp uppercase btn-full-width-genrl"
+                                        target="_blank">Whatsapp</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="wrapper-latest-properties-course-detail">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="section-title">Latest Properties</h1>
+                            <!-- <app-latest-properties></app-latest-properties> -->
+                            <div *ngIf="!loading" class="properties-container">
+                                <app-properties-slide [NumOfProperties]="5" [removeProperty]="propertydetail?.id"
+                                    [maxsliderPerView]="1" [query]="{}"></app-properties-slide>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="section-title related-prop">Related Properties</h1>
+
+                <div *ngIf="!loading" >
+                   <app-properties-slide class="properties-container" [endCardMessage]="'View all Properties'" [NumOfProperties]="8" [removeProperty]="propertydetail?.id" [maxsliderPerView]="relatedPropCardSize" [query]="{'BEDROOM':propertydetail?.bedroom}" >
+
+                    </app-properties-slide>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<ng-template #content let-modal>
+    <button type="button" class="btn-close btn-close-modal" aria-label="Close"
+        (click)="modal.dismiss('Cross click')"></button>
+    <div class="wrapper-video">
+        <!-- <iframe width="100%" height="600" src="https://www.youtube.com/watch?v=F2qtOwVQSAg"></iframe> -->
+        <div class="video-c">
+            <iframe width="760" height="415" src="https://www.youtube.com/embed/eR8K-lCYVNk" title="Bliss Real estate"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+
+        </div>
+    </div>
+</ng-template>

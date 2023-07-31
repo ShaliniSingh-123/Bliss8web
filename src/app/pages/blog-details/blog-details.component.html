@@ -1,0 +1,33 @@
+<div class="blog-news">
+    <div class="wrapper-overlay">
+        <div class="content-overlay">
+            <div>
+                <h3> {{propertydetail?.title}}</h3>
+            </div>
+            <div class="blog-sub-heading">
+                <span><img src="/assets/images/Icon-date.svg" alt=""> {{propertydetail.createdOn | date:dateFormat}}</span>
+                <span><img src="/assets/images/user.svg" alt=""> Super Admin</span>
+                <span> <img src="/assets/images/agenda.svg" alt=""> Lifestyle</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="blog-deatils">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="blog-img" style="width: 100%">
+                    <img [src]="photoUrl+propertydetail.imageFolder+'/'+propertydetail.imageName" alt="">
+                </div>
+                <div class="details-text" style="white-space: pre-line">
+                    <p>{{propertydetail?.description }}</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <app-blog-categories></app-blog-categories>
+            </div>
+        </div>
+
+    </div>
+
+</div>

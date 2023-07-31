@@ -1,0 +1,207 @@
+<!--------------------------------------------------------agents profile------------------------------------------------------>
+<div class="container mt-3 message-container" *ngIf="!dataExists">
+    {{messageinHTML}}
+</div>
+
+<div *ngIf="dataExists">
+
+
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="wrapper-service-item property-handover">
+                    <img src="{{agentPhotoUrl+agentProfileDetails.photo}}" alt="" class="image-style ">
+                    <!-- <div class="overlay"></div> -->
+
+                </div>
+            </div>
+
+            <!-----------details------->
+            <div class="col-sm-8 profile">
+                <div class="broder">
+                    <div>
+                        <div class="name">{{agentProfileDetails?.name}}</div>
+                        <div class="subtitle">{{agentProfileDetails?.title}}</div>
+
+                        <div class="row">
+                            <div class="col-sm-01 icons">
+                                <a href="{{agentProfileDetails?.facebook}}"><img alt=""
+                                        src="../../../assets/images/facebook.svg"></a>
+                                <a href="{{agentProfileDetails?.instagram}}"><img alt=""
+                                        src="../../../assets/images/instagram.svg"></a>
+                                <a href="{{agentProfileDetails?.linkedin}}"><img alt=""
+                                        src="../../../assets/images/linkedin.svg"></a>
+                                <a href="{{agentProfileDetails?.youtube}}"><img alt=""
+                                        src="../../../assets/images/youtube.svg"></a>
+                                <a href="{{agentProfileDetails?.twitter}}"><img alt=""
+                                        src="../../../assets/images/tiwter.svg"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row details">
+                    <div class="experince">
+                        <p>Experience:{{agentProfileDetails?.experience}} </p>
+                        <p>Specialization: {{agentProfileDetails?.specialization}}</p>
+                        <p>Languages : {{agentProfileDetails?.languages}}</p>
+                    </div>
+                    <div class="row">
+                        <div class="pb-1 col-md-4 col-sm-4 col-6">
+                            <boxy-button (onclicked)="goToURL('call',agentProfileDetails?.phone)" [buttonText]="'Call'"
+                                [iconname]="'call'"></boxy-button>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-6">
+                            <boxy-button (onclicked)="goToURL('email',agentProfileDetails?.email)"
+                                [buttonText]="'Email'" [iconname]="'email'"></boxy-button>
+
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-6">
+                            <boxy-button (onclicked)="goToURL('whatsapp',agentProfileDetails?.whatsapp)"
+                                [buttonText]="'Whatsapp'" [iconname]="'whatsapp'"></boxy-button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" col-sm-12 ml-2 mr-2 mt-3 description-style content">
+            <p>{{agentProfileDetails?.description}}
+            </p>
+        </div>
+
+        <!-- *************************************************** Title *************************************************** -->
+        <div class="wrapper-featured-properties">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="discover-feature">Property Listings by {{" "+agentProfileDetails?.name}}
+                          <!-- <span style="color:#6D7787 ;font-weight: 500;">(4 Listings)</span></div> -->
+                    </div>
+                    <div class="col-md-2 wrapper-property-listing">
+                        <!-- <div class="wrap-select-input">
+                            <span>Sort by:</span>
+                            <img src="../../../assets/images/select-arrow.svg" alt=""
+                                class="selet-arrow select-arrow-sort">
+                            <select name="" class="form-control form-control-genrl input-sort">
+                                <option value="">Select Option</option>
+                                <option value="">Lowest Price</option>
+                                <option value="">Star Rating</option>
+                                <option value="">Best Value</option>
+                            </select>
+                        </div> -->
+                    </div>
+                </div>
+                <app-properties-slide [NumOfProperties]="8"
+                [maxsliderPerView]="4" [query]="{'agent':agentProfileDetails?.id} "></app-properties-slide>
+           
+            </div>
+
+
+
+
+            <!-- *************************************************** Title *************************************************** -->
+            <div class="row  justify-content-center">
+                <h3 class="text-center">Send Message</h3>
+            </div>
+
+            <!-- *************************************************** CONTACT FORM SECTION START *************************************************** -->
+            <section class="wrapper-contact-form ">
+                <div class="container">
+                    <form [formGroup]="contactAgentForm">
+                        <div class="row justify-content-center">
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                   <label for="" class="form-label uppercase"> Name</label>
+                                    <input type="text" formControlName="fname" class="form-control" name="fname"
+                                        id="fname" placeholder="Enter  Name" autocomplete="off">
+                                    <div *ngIf="contactAgentForm.controls['fname'].touched && contactAgentForm.controls['fname'].invalid"
+                                        class="alert alert-danger contact-alert">
+                                        <div
+                                            *ngIf="contactAgentForm.controls['fname'].errors && contactAgentForm.controls['fname'].errors['required']">
+                                             Name is required.</div>
+                                    </div>
+                                  
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="" class="form-label uppercase">Email</label>
+                                    <input type="email" formControlName="email" class="form-control" name="email"
+                                        id="email" placeholder="Enter Email" autocomplete="off">
+                                    <div
+                                        *ngIf="contactAgentForm.controls['email'].invalid && contactAgentForm.controls['email'].touched">
+                                        <small class="text-danger"
+                                            *ngIf="contactAgentForm.controls['email'].errors && contactAgentForm.controls['email'].errors['required']">Email
+                                            address is required</small>
+                                        <small class="text-danger"
+                                            *ngIf="contactAgentForm.controls['email'].errors && contactAgentForm.controls['email'].errors['email']">Email
+                                            address is invalid</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="" class="form-label uppercase">Last Name</label>
+                                    <input type="text" formControlName="lname" class="form-control" name="lname"
+                                        id="lname" placeholder="Enter Last Name" autocomplete="off">
+                                    <div *ngIf="contactAgentForm.controls['lname'].touched && contactAgentForm.controls['lname'].invalid"
+                                        class="alert alert-danger contact-alert">
+                                        <div
+                                            *ngIf="contactAgentForm.controls['lname'].errors && contactAgentForm.controls['lname'].errors['required']">
+                                            Last Name is required.</div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="row justify-content-center">
+                           
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="" class="form-label uppercase">Phone</label>
+                                    <input type="text" formControlName="phone" class="form-control" name="phone"
+                                        id="phone" placeholder="Enter Phone" autocomplete="off">
+                                        <small style="color: #666666;" >Eg : 05XXXXXXXXX</small>
+
+
+                                    <div *ngIf="contactAgentForm.controls['phone'].touched && contactAgentForm.controls['phone'].invalid"
+                                        class="alert alert-danger contact-alert">
+                                        <div
+                                            *ngIf="contactAgentForm.controls['phone'].errors && contactAgentForm.controls['phone'].errors['required']">
+                                            Contact number is required.</div>
+                                        <div
+                                            *ngIf="contactAgentForm.controls['phone'].errors && ( contactAgentForm.controls['phone'].errors['pattern'] || contactAgentForm.controls['phone'].errors['maxlength'] || contactAgentForm.controls['phone'].errors['minlength']) ">
+                                            Invalid contact number.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                            </div>
+                        </div>
+                        <div class="row justify-content-center">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="" class="form-label uppercase">Message</label>
+                                    <textarea class="form-control" formControlName="message" name="message" id="message"
+                                        rows="4" placeholder="Write your Message" autocomplete="off"></textarea>
+                                    <div *ngIf="contactAgentForm.controls['message'].touched && contactAgentForm.controls['message'].invalid"
+                                        class="alert alert-danger contact-alert">
+                                        <div
+                                            *ngIf="contactAgentForm.controls['message'].errors && contactAgentForm.controls['message'].errors['required']">
+                                            Message is required.</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="btn btn-primary btn-submit" [disabled]="contactAgentForm.invalid || submitted"
+                                    (click)="onSubmit(); submitted = true;">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- *************************************************** CONTACT FORM SECTION END *************************************************** -->

@@ -1,0 +1,519 @@
+.link-view-all-properties{ 
+    color: #00B8C6 ;
+    text-decoration: none;
+    
+}
+
+.sliding-auto .swiper-pagination-bullet-active {
+    background-color: var(--primary-color) !important;
+}
+.mat-checkbox-ripple .mat-ripple-element,.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+    background-color: var(--primary-color) !important;
+  }
+.sliding-auto .swiper-pagination-horizontal {
+    position: absolute;
+    display: grid;
+    // grid-gap: 0.5rem;
+    justify-content: flex-end;
+    top: 50%;
+    right: 20px !important;
+    transform: translate(-50px, -50%);
+
+}
+
+.sliding-auto .swiper-pagination-bullet {
+    background-color: #FAFAFA;
+    opacity: 1;
+    // margin-right: 2rem;
+}
+.custom-select .mat-form-field-underline {
+    display: none;
+  }
+.d-block {
+    height: 30rem;
+}
+
+
+
+/* ======================= ACHIEVEMENTS STYLSES START ======================= */
+.wrapper-hero-section{
+    position: relative;
+}
+.achievements-reponsive-small{
+    display: none;
+}
+.achievements-reponsive{
+    display:flex;
+    }
+.wrapper-achievements {
+    padding: 50px 0 0;
+    background: #FAFAFA;
+}
+
+.achivment-sub {
+    text-align: center;
+    font: normal normal medium 17px/22px avenirRegular;
+    letter-spacing: 0px;
+    color: #6D7787;
+    opacity: 1;
+}
+
+.wrap-item-achievements {
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    overflow: hidden;
+    font-family: avenirRegular;
+}
+
+.wrap-item-achievements img {
+    width: 55px;
+}
+
+.wrap-item-achievements .title-achievement {
+    margin: 10px 0 5px;
+}
+
+.wrap-item-achievements .small-desc-achievement {
+    color: #6D7787;
+    margin-bottom: 0;
+    font: normal normal medium 17px/22px Avenir;
+    letter-spacing: 0px;
+    color: #6D7787;
+    opacity: 1;
+}
+.wrap-image{
+    display: flex;
+}
+/* ======================= ACHIEVEMENTS STYLSES END ======================= */
+
+.wrapper-cta {
+    background-image: url(../../../assets/images/img-cta.png);
+    background-size: 100% 100%;
+    color: white;
+    padding: 100px 0;
+}
+
+/* ======================= CALL TO ACTION STYLSES END ======================= */
+
+/* ======================= SEARCH STYLSES START ======================= */
+.form-label {
+    font-size: 12px;
+    font-family: avenirRegular;
+    color: #000000 !important;
+    opacity: 1;
+}
+.wrap-option {
+    font-size: 1rem;
+    min-height: 1rem;
+    padding-bottom: 1rem !important;
+}
+.wrap-option-select{
+    font-size: 1rem;
+}
+select{
+    font-size: 0.8rem !important;
+}
+
+.form-select {
+    font-size: 0.8rem;
+    width: 100%;
+}
+::-webkit-input-placeholder {
+    font-size: 0.8rem;
+}
+
+.wrapper-search {
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 100;
+    max-width: 1000px;
+    border-radius: 20px;
+    width: auto;
+    height: 130px !important;
+}
+
+.search-inner {
+    width: 100%;
+    border-radius: 20px;
+    background: white;
+    padding: 15px 10px 15px 10px;
+}
+
+.search-inner input,
+.search-inner select {
+    border: 0;
+    border-bottom: 1px solid lightgray;
+    border-radius: 0;
+    padding: 10px 0;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.search-inner .nav-pills {
+    justify-content: center;
+}
+
+.search-inner .nav-pills .nav-item {
+    margin-top: -80px;
+}
+
+.search-inner .nav-pills .nav-item .nav-link.active {
+    background: white;
+    color: var(--secondry-color);
+    font-size: 16px;
+    padding: 8px 30px;
+    font-weight: bold;
+}
+
+.search-inner .nav-pills .nav-item .nav-link {
+    color: white;
+    font-size: 16px;
+    padding: 8px 30px;
+    font-weight: bold;
+    position: relative;
+}
+.search-inner .nav-pills .nav-item .nav-link.active::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    border-color: transparent;
+    border-width: 9px;
+    border-style: solid;
+    border-color: white transparent transparent;
+}
+
+
+.advance-filter-btn {
+    font-size: 14px;
+    line-height: 1.2;
+    font-family: avenirRegular;
+    color: #000000;
+    text-transform: uppercase;
+    opacity: 1;
+    cursor: pointer;
+}
+
+.advance-filter {
+    font-size: 15px;
+}
+
+.filter-btn-icon {
+    margin-right: 0.5rem;
+}
+.btn-search {
+    // width: calc(100% - 160px);
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 7px;
+    display: block;
+}
+.btn-search img {
+    margin-right: 7px;
+}
+
+/* ======================= SEARCH STYLSES END ======================= */
+
+/* ======================= PARTNERS STYLSES START ======================= */
+.wrapper-agents .swiper-pagination .swiper-pagination-bullet-active {
+    background: var(--primary-color) !important;
+}
+.patners-sub {
+    text-align: center;
+    /* font: normal normal medium 17px/22px Avenir; */
+    letter-spacing: 0px;
+    color: #6D7787;
+    opacity: 1;
+    font-family: avenirRegular;
+}
+// .img-partners {
+//     height: 120px;
+//     width: 120px;
+// }
+.wrapper-partners .swiper {
+    min-height: 140px !important;
+}
+.wrapper-partners .swiper-pagination .swiper-pagination-bullet-active {
+    background-color: var(--primary-color) !important;
+}
+/* ======================= PARTNERS STYLSES END ======================= */
+
+/* ======================= HERO BANNER STYLSES START ======================= */
+.carousel-inner{
+    height:78vh;
+}
+.carousel-inner .carousel-item img{
+    height: 78vh;
+    object-fit: cover;
+    width: 100%;
+}
+.wrapper-hero-section{
+    position: relative;
+}
+.wrapper-hero-section .carousel-indicators{
+    left: auto !important;
+    bottom: auto !important;
+    right: 40px;
+    margin: 0 !important;
+    top: calc(50%);
+    transform: rotate(90deg);
+}
+.wrapper-hero-section .carousel-indicators button{
+    border: 0 !important;
+    width: 7px;
+    height: 7px;
+    border-radius: 100px;
+    overflow: hidden;
+    background: white;
+    margin: 1px 4px !important;
+    opacity: 100%;
+}
+.wrapper-hero-section .carousel-indicators button.active{
+    background: var(--primary-color);
+    width: 9px;
+    height: 9px;
+    margin: 0 4px !important;
+}
+.carousel-caption{
+    bottom: 200px !important;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto;
+}
+.carousel-caption p{
+    text-shadow: 0 0 2px #000;
+    font-weight: bold;
+    letter-spacing: 5px !important;
+}
+.carousel-caption h1{
+    text-shadow: 0 0 2px #000;
+    font-weight: bold;
+}
+/* ======================= HERO BANNER STYLSES END ======================= */
+
+
+/* ======================= RESPONSIVE STYLSE ======================= */
+select {
+    padding: 1rem;
+}
+
+option {
+    height: 1rem;
+    margin: 1rem;
+    line-height: 1rem;
+    padding: 1rem;
+}
+
+@media only screen and (min-width: 278px) and (max-width: 376px) {
+    .wrapper-search {
+        width: 100%;
+        position: absolute;
+        top: 15rem !important;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 100;
+        max-width: 1320px;
+        border-radius: 20px;
+    }
+}
+
+@media only screen and (min-width: 376px) and (max-width: 768px) {
+    .wrapper-search {
+        width: 100%;
+        position: absolute;
+        top: 25rem !important;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 100;
+        max-width: 1320px;
+        border-radius: 20px;
+    }
+
+}
+
+@media (max-width: 767px) {
+    .wrapper-search {
+        width: 100%;
+        position: absolute;
+        top: 20rem;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        z-index: 100;
+        max-width: 1320px;
+        border-radius: 20px;
+    }
+    .achievements-reponsive{
+        display:none;
+        }
+        .achievements-reponsive-small{
+            display: flex;
+        }
+    .search-inner {
+        height: 100%;
+    }
+
+    .search-inner .nav-pills {
+        justify-content: center;
+    }
+
+    .search-inner .nav-pills .nav-item {
+        margin-top: -80px;
+    }
+
+    .search-inner .nav-pills .nav-item .nav-link.active {
+        background: white;
+        color: var(--secondry-color);
+        font-size: 16px;
+        padding: 8px 30px;
+        font-weight: bold;
+    }
+
+    .search-inner .nav-pills .nav-item .nav-link {
+        color: white;
+        font-size: 16px;
+        padding: 8px 30px;
+        font-weight: bold;
+        position: relative;
+    }
+
+    .search-inner .nav-pills .nav-item .nav-link.active::before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+        border-color: transparent;
+        border-width: 9px;
+        border-style: solid;
+        border-color: white transparent transparent;
+    }
+
+    .btn-search {
+        width: 100%;
+        height: 2.1rem !important;
+        font-size: 0.7rem;
+    }
+
+    .search-icon {
+        height: 0.6rem;
+        width: 0.6rem;
+    }
+
+    .wrap-item-wcu {
+        margin: 1rem;
+    }
+
+    .wrapper-wcu {
+        background: #F0F1F2;
+        padding: 20px 0;
+    }
+
+    .wrap-agent-item {
+        margin-top: 0.8rem;
+    }
+
+    .location-box-small {
+        width: 100%;
+    }
+
+    .location-box-big {
+        width: 100%;
+    }
+    .wrapper-filte-responsive {
+        margin-top: 1rem !important;
+        justify-content: center !important;
+        cursor: pointer;
+    }
+    .btn-primary {
+        font-size: 0.6rem;
+    }
+    .wrap-blog-item {
+        margin-top: 1rem;
+    }
+    .agent-responsive{
+        display: flex;
+    }
+    .agent-reponsive-large{
+        display: none   ;
+    }
+}
+.wrapper-heading{
+    text-align: center;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto;
+}
+
+#comp1 {
+    border: 0;
+    border-bottom: 0px solid lightgray !important;
+    border-radius: 0;
+    padding: 0px 0;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+.slider-width-div{
+    width: 135px !important;
+}
+.mat-expansion-panel:not([class*='mat-elevation-z']) {
+    box-shadow: none;
+}
+.ngx-slider .ngx-slider-pointer {
+    background-color: white !important;
+//    cursor: pointer;
+   width: 20px !important;
+   height: 20px !important;
+   top: -10px !important;
+   z-index: 6;
+   border: 2px solid var(--primary-color);
+}
+.mat-form-field-label-wrapper 
+{
+border-bottom:0px;
+}
+.ng-tns-c90-1
+{
+border-bottom: 10px red;
+}
+.ngx-slider-pointer:after {
+    display: none;
+}
+
+.ngx-slider-selection {
+    background: var(--primary-color);
+}
+
+.ngx-slider-active {
+    outline-color:var(--primary-color) !important;
+}
+.ngx-slider-selection {
+           background: var(--primary-color)  !important;
+         }
+
+         
+.ngx-slider-bar {
+    height: 2px !important;
+}
+.wrapper-featured-properties.container {
+    width: 100%; /* Set the width to 100% to expand the element */
+    max-width: 100%; /* Set the maximum width to 100% */
+    padding-left: 15px; /* Add padding to align with other elements */
+    padding-right: 15px; /* Add padding to align with other elements */
+    margin-left: auto; /* Center the element horizontally */
+    margin-right: auto; /* Center the element horizontally */
+  }
+  

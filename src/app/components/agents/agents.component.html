@@ -1,0 +1,81 @@
+<section class="wrapper-agents">
+    <div class="container">
+      <div class="wrapper-heading">
+        <h5 class="text-center">Our Area Specialists</h5>
+        <p class="text-center patners-details">Will provide you powerful insight and consulting on everything from choosing the right investment to capital gains on your assets.
+
+        </p>
+      </div>
+      <div class="row agent-reponsive-large">
+        <ng-container *ngFor="let item of agent">
+        <div class="col-md-2" *ngIf="item.specialization">
+          <div class="wrap-agent-item">
+            <a href="/agent-profile-details/{{item.id}}" class="link-agent-card">
+              <img src="{{s3BucketHost}}{{item.photo}}" alt="" class="img-fluid img-agent">
+              <h4 class="agent-name">{{item.name}}</h4>
+              <p class="agent-designation">{{item.specialization}}</p>
+            </a>
+          </div>
+        </div>
+      </ng-container>    
+      </div>
+     
+      <!-- <div class="agent-responsive">
+       
+   <swiper [config]="configagent" [navigation]="{ nextEl: '.swiper-button-next-agent',
+      prevEl: '.swiper-button-prev-agent'}">
+      
+        <ng-template swiperSlide>
+          <div class="wrap-agent-item">
+            <a href="" class="link-agent-card">
+              <img src="assets/images/agent.png" alt="" class="img-fluid img-agent">
+              <h4 class="agent-name">Samuel Durairaj</h4>
+              <p class="agent-designation">Senior Consultant</p>
+            </a>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="wrap-agent-item">
+            <a href="" class="link-agent-card">
+              <img src="assets/images/agent.png" alt="" class="img-fluid img-agent">
+              <h4 class="agent-name">Samuel Durairaj</h4>
+              <p class="agent-designation">Senior Consultant</p>
+            </a>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="wrap-agent-item">
+            <a href="" class="link-agent-card">
+              <img src="assets/images/agent.png" alt="" class="img-fluid img-agent">
+              <h4 class="agent-name">Samuel Durairaj</h4>
+              <p class="agent-designation">Senior Consultant</p>
+            </a>
+          </div>
+        </ng-template>
+        <ng-template swiperSlide>
+          <div class="wrap-agent-item">
+            <a href="" class="link-agent-card">
+              <img src="assets/images/agent.png" alt="" class="img-fluid img-agent">
+              <h4 class="agent-name">Samuel Durairaj</h4>
+              <p class="agent-designation">Senior Consultant</p>
+            </a>
+          </div>
+        </ng-template>
+       
+      </swiper>
+      
+      <div class="swiper-button-prev-agent">
+        <img src="assets/images/arrow-prev.svg" alt="">
+      </div>
+      <div class="swiper-button-next-agent">
+        <img src="assets/images/arrow-next.svg" alt="">
+      </div>
+      </div> -->
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <a href="/our-agents" class="link-view-all-agents">View All Agents <img src="assets/images/arrow-theme-color.svg"
+              alt=""></a>
+        </div>
+      </div>
+    </div>
+  </section>
